@@ -19,17 +19,17 @@ export default function Footer() {
             <motion.a
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              href="tel:+916205878945"
+              href="tel:+919067777030"
               className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900"
             >
               <FaPhoneAlt />
-              Call 6205878945
+              Call 90677 77030
             </motion.a>
 
             <motion.a
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              href="https://wa.me/916205878945"
+              href="https://wa.me/919067777030"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-white"

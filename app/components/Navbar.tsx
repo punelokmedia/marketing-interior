@@ -118,12 +118,12 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3" aria-label="Go to home">
           <Image
-            src="/interiorwala-logo.png"
-            alt="InteriorWala"
-            width={190}
-            height={52}
+            src="/benz-logo.png"
+            alt="Benz Architecture"
+            width={1254}
+            height={1254}
             priority
-            className="h-10 w-auto md:h-11"
+            className="h-14 w-auto md:h-16"
           />
         </Link>
 

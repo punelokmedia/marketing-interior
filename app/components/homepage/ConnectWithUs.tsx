@@ -63,7 +63,7 @@ export default function ConnectWithUs() {
 
               <div className="mt-7 flex flex-col gap-4">
                 <motion.a
-                  href="tel:+916205878945"
+                  href="tel:+919067777030"
                   whileHover={{ y: -2, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center justify-center gap-3 rounded-full bg-white px-6 py-3 font-semibold text-slate-900 shadow-lg"
@@ -73,7 +73,7 @@ export default function ConnectWithUs() {
                 </motion.a>
 
                 <motion.a
-                  href="https://wa.me/916205878945"
+                  href="https://wa.me/919067777030"
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ y: -2, scale: 1.01 }}

@@ -8,7 +8,7 @@ export default function FloatingContactBar() {
     <div className="fixed right-3 top-1/2 z-40 -translate-y-1/2">
       <div className="flex flex-col gap-3">
         <motion.a
-          href="tel:+916205878945"
+          href="tel:+919067777030"
           whileHover={{ x: -3, scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           className="group flex items-center gap-2 rounded-2xl bg-fuchsia-700 px-5 py-3 text-white shadow-lg shadow-fuchsia-700/30"
@@ -20,7 +20,7 @@ export default function FloatingContactBar() {
         </motion.a>
 
         <motion.a
-          href="https://wa.me/916205878945"
+          href="https://wa.me/919067777030"
           target="_blank"
           rel="noreferrer"
           whileHover={{ x: -3, scale: 1.03 }}

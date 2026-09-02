@@ -184,13 +184,13 @@ export default function ContactPage() {
 
             <div className="mt-6 space-y-4">
               <a
-                href="tel:+916205878945"
+                href="tel:+919067777030"
                 className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 transition hover:bg-slate-100"
               >
                 <span className="rounded-full bg-blue-100 p-2 text-blue-700">
                   <FaPhoneAlt />
                 </span>
-                +91 62058 78945
+                +91 90677 77030
               </a>
 
               <a
@@ -204,7 +204,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="https://wa.me/916205878945"
+                href="https://wa.me/919067777030"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 transition hover:bg-slate-100"
