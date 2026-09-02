@@ -19,9 +19,10 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
   {
-    name: "What We Do",
-    href: "/services",
+    name: "Residential",
+    href: "/services/interior-design",
     dropdown: [
       { name: "Interior Design", href: "/services/interior-design" },
       { name: "Renovation", href: "/services/renovation" },
@@ -29,59 +30,18 @@ const navLinks: NavLink[] = [
     ],
   },
   {
-    name: "Gallery",
-    href: "/gallery",
-  },
-  {
-    name: "Location",
-    href: "/location",
-    megaDropdown: [
-      {
-        title: "Maharashtra",
-        items: [
-          { name: "Mumbai", href: "/location/mumbai" },
-          { name: "Pune", href: "/location/pune" },
-          { name: "Nagpur", href: "/location/nagpur" },
-        ],
-      },
-      {
-        title: "Karnataka",
-        items: [{ name: "Bangalore", href: "/location/bangalore" }],
-      },
-      {
-        title: "Tamil Nadu",
-        items: [{ name: "Chennai", href: "/location/chennai" }],
-      },
-      {
-        title: "Telangana",
-        items: [{ name: "Hyderabad", href: "/location/hyderabad" }],
-      },
-      {
-        title: "Gujarat",
-        items: [
-          { name: "Ahmedabad", href: "/location/ahmedabad" },
-          { name: "Surat", href: "/location/surat" },
-        ],
-      },
-      {
-        title: "Rajasthan",
-        items: [{ name: "Jaipur", href: "/location/jaipur" }],
-      },
-      {
-        title: "West Bengal",
-        items: [{ name: "Kolkata", href: "/location/kolkata" }],
-      },
-      {
-        title: "Uttar Pradesh",
-        items: [{ name: "Lucknow", href: "/location/lucknow" }],
-      },
-      {
-        title: "Delhi NCR",
-        items: [{ name: "Delhi", href: "/location/delhi" }],
-      },
+    name: "Commercial",
+    href: "/commercial",
+    dropdown: [
+      { name: "Office Interior", href: "/services/interior-design" },
+      { name: "Commercial Renovation", href: "/services/renovation" },
+      { name: "Custom Commercial Interior", href: "/services/Custom-interiorpage" },
     ],
   },
-  { name: "Contact", href: "/contact" },
+  { name: "Our Projects", href: "/gallery" },
+  { name: "Services", href: "/services" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -128,7 +88,7 @@ export default function Navbar() {
         </Link>
 
         {/* LINKS */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5">
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -143,7 +103,7 @@ export default function Navbar() {
               <motion.div whileHover={{ y: -2 }}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-1 text-base font-semibold text-slate-800 hover:text-black"
+                  className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-slate-800 hover:text-black"
                 >
                   {link.name}
                   {(link.dropdown || link.megaDropdown) && (
