@@ -220,7 +220,7 @@ export default function ContactPage() {
                   <FaMapMarkerAlt />
                 </span>
                 <span>
-                  Office: 12th Floor, Skyline Plaza, Andheri East, Mumbai
+                  UG 67-68, Clover Hills Plaza, NIBM Road, Kondhwa, Pune 411048
                 </span>
               </div>
             </div>
