@@ -40,7 +40,7 @@ export default function WhyChoose() {
         <div className="max-w-7xl mx-auto px-6 text-center">
           {/* HEADING */}
           <h2 className="text-2xl md:text-3xl font-bold">
-            Why Choose InteriorWala?
+            Why Choose BenzArc?
           </h2>
 
           {/* STATS */}
