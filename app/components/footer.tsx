@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="mt-6 space-y-2 text-sm text-slate-300">
             <p className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-fuchsia-300" />
-              Serving Mumbai, Pune, Delhi, Bangalore & more cities
+              Serving  Pune
             </p>
             <p className="flex items-center gap-2">
               <FaRegClock className="text-fuchsia-300" />

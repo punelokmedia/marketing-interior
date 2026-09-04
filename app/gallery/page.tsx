@@ -10,7 +10,8 @@ const galleryCategories = [
     id: "video-gallery",
     title: "Video Gallery",
     subtitle: "Walkthroughs and guided interior stories.",
-    image: "https://picsum.photos/seed/gallery-video-cover/900/900",
+    image:
+      "/From%20Klickpin.com-%20877216833690196814-pin-id-877216833690196814.jpg",
     description:
       "If you are looking for realistic inspiration around interior process and outcomes, our video gallery will help you explore finished homes in detail.",
   },
@@ -18,7 +19,7 @@ const galleryCategories = [
     id: "interior-gallery",
     title: "Interior Gallery",
     subtitle: "Handpicked home interior highlights.",
-    image: "https://picsum.photos/seed/gallery-interior-cover/900/900",
+    image: "interio gallery.jpg",
     description:
       "A wide range of completed projects including apartments, villas and family homes. Browse practical designs with premium aesthetics.",
   },
@@ -26,7 +27,7 @@ const galleryCategories = [
     id: "project-gallery",
     title: "Project-wise Gallery",
     subtitle: "Room-by-room completed project showcase.",
-    image: "https://picsum.photos/seed/gallery-project-cover/900/900",
+    image: "project_wise.jpg",
     description:
       "From consultation to complete execution, explore project-wise visuals with modern, comfortable and budget-smart interior ideas.",
   },
@@ -36,42 +37,42 @@ const galleryImages = [
   {
     id: "gallery-grid-1",
     type: "Living",
-    image: "https://picsum.photos/seed/gallery-grid-1/1200/900",
+    image: "project-image-one.jpg",
   },
   {
     id: "gallery-grid-2",
     type: "Kitchen",
-    image: "https://picsum.photos/seed/gallery-grid-2/1200/900",
+    image: "project-image-second.jpg",
   },
   {
     id: "gallery-grid-3",
     type: "Bedroom",
-    image: "https://picsum.photos/seed/gallery-grid-3/1200/900",
+    image: "project-image-3th.jpg",
   },
   {
     id: "gallery-grid-4",
     type: "Workspace",
-    image: "https://picsum.photos/seed/gallery-grid-4/1200/900",
+    image: "project-image-4th.jpg",
   },
   {
     id: "gallery-grid-5",
     type: "Living",
-    image: "https://picsum.photos/seed/gallery-grid-5/1200/900",
+    image: "project-image-5th.jpg",
   },
   {
     id: "gallery-grid-6",
     type: "Kitchen",
-    image: "https://picsum.photos/seed/gallery-grid-6/1200/900",
+    image: "project-image-6th.jpg",
   },
   {
     id: "gallery-grid-7",
     type: "Bedroom",
-    image: "https://picsum.photos/seed/gallery-grid-7/1200/900",
+    image: "project-image-fourth.jpg",
   },
   {
     id: "gallery-grid-8",
     type: "Workspace",
-    image: "https://picsum.photos/seed/gallery-grid-8/1200/900",
+    image: "project-image-7th.jpg",
   },
 ];
 
@@ -85,18 +86,18 @@ const galleryStats = [
 const walkthroughs = [
   {
     title: "2BHK Modern Walkthrough",
-    image: "https://picsum.photos/seed/walkthrough-1/1200/900",
-    duration: "04:32",
+    video:
+      "/videos/From%20Klickpin.com-%20314618723993406202-pin-id-314618723993406202.mp4",
   },
   {
     title: "Luxury Kitchen Reveal",
-    image: "https://picsum.photos/seed/walkthrough-2/1200/900",
-    duration: "03:18",
+    video:
+      "/videos/From%20Klickpin.com-%201120903794787406614-pin-id-1120903794787406614.mp4",
   },
   {
     title: "Compact Home Space Plan",
-    image: "https://picsum.photos/seed/walkthrough-3/1200/900",
-    duration: "05:06",
+    video:
+      "/videos/From%20Klickpin.com-%20174514554307978177-pin-id-174514554307978177.mp4",
   },
 ];
 
@@ -116,8 +117,7 @@ export default function GalleryPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://picsum.photos/seed/gallery-hero-main/2200/1200')",
+            backgroundImage: "url('/background.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-black/55" />
@@ -126,7 +126,7 @@ export default function GalleryPage() {
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p
             className="text-xs font-semibold tracking-[0.25em] text-cyan-200"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
           >
             GALLERY
@@ -232,18 +232,17 @@ export default function GalleryPage() {
               whileHover={{ y: -6 }}
               className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md shadow-slate-200/60"
             >
-              <div
-                className="relative h-56 bg-cover bg-center"
-                style={{ backgroundImage: `url('${item.image}')` }}
+              <video
+                className="h-56 w-full bg-black object-cover"
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                aria-label={item.title}
               >
-                <div className="absolute inset-0 bg-black/25" />
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-900">
-                  {item.duration}
-                </div>
-                <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white text-xl text-white">
-                  ▶
-                </div>
-              </div>
+                <source src={item.video} type="video/mp4" />
+                Your browser does not support HTML video.
+              </video>
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
               </div>
