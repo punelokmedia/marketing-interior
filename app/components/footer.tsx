@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-slate-950 text-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <h2 className="text-2xl font-bold">InteriorWala</h2>
+          <h2 className="text-2xl font-bold">BenzArc</h2>
           <p className="mt-3 max-w-md text-sm text-slate-300">
             Premium interiors with transparent pricing, dedicated experts, and
             on-time execution for your dream home.
@@ -89,7 +89,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-slate-800 py-4 text-center text-sm text-slate-400">
-        © 2026 InteriorWala. All rights reserved.
+        © 2026 BenzArc. All rights reserved.
       </div>
     </footer>
   );
