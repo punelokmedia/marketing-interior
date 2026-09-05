@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../components/HeroSlideshow";
 import Image from "next/image";
 import { FormEvent, useMemo, useState } from "react";
 import { FiArrowRight, FiSearch } from "react-icons/fi";
@@ -116,15 +117,7 @@ export default function BlogListing() {
   return (
     <div className="min-h-screen bg-white text-slate-950">
       <section className="relative isolate flex min-h-[260px] items-center justify-center overflow-hidden px-5 py-14 text-center text-white sm:min-h-[300px]">
-        <Image
-          src="/blog-header.jpg"
-          alt="Luxury interior with panoramic city views"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/65" />
+        <HeroSlideshow images={["/blog-header.jpg","/blog-image.jpg","/blog-image-third.jpg"]} />
         <div className="relative">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-red-300">
             The InteriorWala Journal

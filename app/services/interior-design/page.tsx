@@ -1,6 +1,8 @@
 "use client";
 
+import HeroSlideshow from "../../components/HeroSlideshow";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import OpenQuoteButton from "../../components/OpenQuoteButton";
 
 const highlights = [
@@ -13,21 +15,24 @@ const highlights = [
 const designPackages = [
   {
     name: "Essential Home",
-    image: "https://picsum.photos/seed/interior-package-essential/1200/900",
+    image: "/Essential%20Home/ChatGPT%20Image%20Sep%205%2C%202026%2C%2004_48_41%20PM%20(1).png",
+    href: "/services/interior-design/essential-home",
     oldPrice: "8.2 Lac",
     offerPrice: "6.6 Lac",
     details: "Perfect for 2BHK modular essentials with modern finishes.",
   },
   {
     name: "Premium Living",
-    image: "https://picsum.photos/seed/interior-package-premium/1200/900",
+    image: "/Premium%20Living/ChatGPT%20Image%20Sep%205%2C%202026%2C%2004_53_59%20PM%20(1).png",
+    href: "/services/interior-design/premium-living",
     oldPrice: "14.9 Lac",
     offerPrice: "11.2 Lac",
     details: "Designed for spacious 3BHK homes with premium material palette.",
   },
   {
     name: "Luxury Signature",
-    image: "https://picsum.photos/seed/interior-package-luxury/1200/900",
+    image: "/Luxury%20Signature/ChatGPT%20Image%20Sep%205%2C%202026%2C%2005_17_38%20PM%20(1).png",
+    href: "/services/interior-design/luxury-signature",
     oldPrice: "21.6 Lac",
     offerPrice: "16.9 Lac",
     details: "High-end bespoke interiors with advanced design detailing.",
@@ -37,19 +42,23 @@ const designPackages = [
 const spaces = [
   {
     title: "Kitchen Interiors",
-    image: "https://picsum.photos/seed/interior-space-kitchen/1200/900",
+    image: "/kitchen-interior/ImgHunt_Pinimg_20260905_029588847bdb92a1c3dc3c658aa5570e.jpeg",
+    href: "/services/interior-design/kitchen-interior",
   },
   {
     title: "Living Room Styling",
-    image: "https://picsum.photos/seed/interior-space-living/1200/900",
+    image: "/livingroom-style/ImgHunt_Pinterest_20260905_38be8c612aff0e28bfa041158bf5e62a.jpeg",
+    href: "/services/interior-design/livingroom-style",
   },
   {
     title: "Bedroom Design",
-    image: "https://picsum.photos/seed/interior-space-bedroom/1200/900",
+    image: "/bedroom/ImgHunt_Pinterest_20260905_59ae1e99472036f74ca87ad7e8ac5f60.jpeg",
+    href: "/services/interior-design/bedroom",
   },
   {
     title: "Wardrobe & Storage",
-    image: "https://picsum.photos/seed/interior-space-wardrobe/1200/900",
+    image: "/Wardrobe-Storage/ImgHunt_Pinterest_20260905_1e04d1f640088a993a941582280e914b.jpeg",
+    href: "/services/interior-design/wardrobe-storage",
   },
 ];
 
@@ -57,15 +66,7 @@ export default function InteriorDesignPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://picsum.photos/seed/interior-hero-main/2200/1200')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/35" />
+        <HeroSlideshow images={["/service_page_hero.jpg","/about-hero.jpg","/background.jpg"]} />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p
@@ -124,7 +125,7 @@ export default function InteriorDesignPage() {
           {designPackages.map((pkg) => (
             <article
               key={pkg.name}
-              className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60"
+              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60"
             >
               <div
                 className="h-56 bg-cover bg-center"
@@ -133,6 +134,11 @@ export default function InteriorDesignPage() {
               <div className="p-5">
                 <h3 className="text-2xl font-bold text-slate-900">{pkg.name}</h3>
                 <p className="mt-2 text-sm text-slate-600">{pkg.details}</p>
+                {pkg.href && (
+                  <Link href={pkg.href} className="mt-3 inline-block font-semibold text-fuchsia-700 after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-fuchsia-700">
+                    Explore {pkg.name} →
+                  </Link>
+                )}
                 <p className="mt-3 text-sm text-slate-500">
                   Offer <span className="line-through">{pkg.oldPrice}</span>{" "}
                   <span className="text-2xl font-bold text-fuchsia-700">
@@ -160,8 +166,18 @@ export default function InteriorDesignPage() {
                 style={{ backgroundImage: `url('${item.image}')` }}
               />
               <div className="absolute inset-0 bg-black/30" />
-              <p className="absolute bottom-4 left-4 text-lg font-semibold text-white">
+              {item.href && (
+                <Link
+                  href={item.href}
+                  aria-label={`View ${item.title} catalogue`}
+                  className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
+                />
+              )}
+              <p className="pointer-events-none absolute bottom-4 left-4 text-lg font-semibold text-white">
                 {item.title}
+                {item.href && (
+                  <span className="mt-1 block text-sm font-normal">View catalogue →</span>
+                )}
               </p>
             </div>
           ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../components/HeroSlideshow";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
@@ -114,14 +115,7 @@ export default function GalleryPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/background.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/35" />
+        <HeroSlideshow images={["/background.jpg","/project-image-one.jpg","/project-image-second.jpg"]} />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p

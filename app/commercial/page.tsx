@@ -1,3 +1,4 @@
+import HeroSlideshow from "../components/HeroSlideshow";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -118,15 +119,7 @@ export default function CommercialPage() {
   return (
     <div className="overflow-hidden bg-white text-[#071329]">
       <section className="relative min-h-[610px] bg-[#071329] md:min-h-[680px]">
-        <Image
-          src="/Commercial-hero.png"
-          alt="Modern commercial reception and office interior"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#031023]/95 via-[#031023]/68 to-transparent" />
+        <HeroSlideshow images={["/Commercial-hero.png","/Commercial-office-image.jpg","/Commercial-retail-image.jpg"]} />
 
         <div className="relative mx-auto flex min-h-[610px] max-w-7xl items-center px-6 py-20 md:min-h-[680px] md:px-10 lg:px-12">
           <div className="max-w-xl text-white">

@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../components/HeroSlideshow";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { locationCities } from "./locationData";
@@ -8,6 +9,7 @@ export default function LocationPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20 pt-3">
       <section className="relative overflow-hidden rounded-b-[2rem] bg-slate-950 py-20 text-white md:py-24">
+        <HeroSlideshow />
         <div className="absolute -left-20 top-10 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
 

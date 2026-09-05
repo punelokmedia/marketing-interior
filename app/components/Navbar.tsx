@@ -40,7 +40,6 @@ const navLinks: NavLink[] = [
   },
   { name: "Our Projects", href: "/gallery" },
   { name: "Services", href: "/services" },
-  { name: "Blog", href: "/blog" },
   { name: "Contact Us", href: "/contact" },
 ];
 

@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../../components/HeroSlideshow";
 import { motion } from "framer-motion";
 import OpenQuoteButton from "../../components/OpenQuoteButton";
 
@@ -32,12 +33,12 @@ const process = [
 const beforeAfterCards = [
   {
     title: "Kitchen Makeover",
-    image: "https://picsum.photos/seed/renovation-kitchen/1200/900",
+    image: "",
     text: "From outdated utility kitchen to elegant modular setup.",
   },
   {
     title: "Living Room Revamp",
-    image: "https://picsum.photos/seed/renovation-living/1200/900",
+    image: "",
     text: "New TV wall, premium lighting, and smart storage integration.",
   },
   {
@@ -51,15 +52,7 @@ export default function RenovationPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://picsum.photos/seed/renovation-hero-main/2200/1200')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+        <HeroSlideshow images={["/service_page_hero.jpg","/herosection-image.jpg","/about-hero.jpg"]} />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p

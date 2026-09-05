@@ -1,3 +1,4 @@
+import HeroSlideshow from "../components/HeroSlideshow";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -67,15 +68,7 @@ export default function AboutPage() {
   return (
     <div className="overflow-hidden bg-white">
       <section className="relative isolate min-h-[720px] bg-[#17110e] text-white">
-        <Image
-          src="/about-hero.jpg"
-          alt="Warm contemporary kitchen interior designed by InteriorWala"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-35"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/25" />
+        <HeroSlideshow images={["/about-hero.jpg","/herosection-image.jpg","/service_page_hero.jpg"]} />
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-40 pt-16 md:px-8 lg:grid-cols-[0.9fr_1.25fr] lg:items-center lg:gap-16 lg:pb-44 lg:pt-20">
           <div>

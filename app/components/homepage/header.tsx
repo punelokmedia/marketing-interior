@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../HeroSlideshow";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import QuoteForm from "../QuoteForm";
@@ -20,17 +21,7 @@ export default function Header({
 }: HeaderProps) {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white">
-      <img
-        src={
-          image ||
-          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
-        }
-        alt="Luxury interior"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/25 to-slate-900/10" />
+      <HeroSlideshow images={[image || "/herosection-image.jpg", "/about-hero.jpg", "/service_page_hero.jpg"]} />
       <div className="absolute -left-36 top-24 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
 

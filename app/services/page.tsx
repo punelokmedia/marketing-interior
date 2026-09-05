@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../components/HeroSlideshow";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import OpenQuoteButton from "../components/OpenQuoteButton";
@@ -42,15 +43,7 @@ export default function ServicesPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://picsum.photos/seed/what-we-do-hero/2200/1200')",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/35" />
+        <HeroSlideshow images={["/service_page_hero.jpg","/about-hero.jpg","/background.jpg"]} />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p

@@ -58,6 +58,7 @@ export default function Footer() {
               { label: "Home", href: "/" },
               { label: "What We Do", href: "/services" },
               { label: "Locations", href: "/location" },
+              { label: "Blog", href: "/blog" },
               { label: "Contact", href: "/contact" },
             ].map((item) => (
               <motion.li key={item.label} whileHover={{ x: 5 }}>

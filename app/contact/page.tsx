@@ -1,5 +1,6 @@
 "use client";
 
+import HeroSlideshow from "../components/HeroSlideshow";
 import { motion } from "framer-motion";
 import { type ChangeEvent, type FormEvent, useState } from "react";
 import {
@@ -118,6 +119,7 @@ export default function ContactPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20 pt-2 md:pt-3">
       <section className="relative overflow-hidden rounded-b-[2.2rem] bg-slate-950 px-1 py-20 text-white md:py-24">
+        <HeroSlideshow />
         <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-6 text-center">

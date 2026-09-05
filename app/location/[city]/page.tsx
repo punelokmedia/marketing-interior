@@ -1,3 +1,4 @@
+import HeroSlideshow from "../../components/HeroSlideshow";
 import { notFound } from "next/navigation";
 import { getCityBySlug } from "../locationData";
 import OpenQuoteButton from "../../components/OpenQuoteButton";
@@ -5,24 +6,6 @@ import OpenQuoteButton from "../../components/OpenQuoteButton";
 type LocationCityPageProps = {
   params: Promise<{ city: string }>;
 };
-
-const cityHeroImages: Record<string, string> = {
-  mumbai: "https://picsum.photos/seed/interior-mumbai/2200/1200",
-  delhi: "https://picsum.photos/seed/interior-delhi/2200/1200",
-  bangalore: "https://picsum.photos/seed/interior-bangalore/2200/1200",
-  hyderabad: "https://picsum.photos/seed/interior-hyderabad/2200/1200",
-  pune: "https://picsum.photos/seed/interior-pune/2200/1200",
-  kolkata: "https://picsum.photos/seed/interior-kolkata/2200/1200",
-  chennai: "https://picsum.photos/seed/interior-chennai/2200/1200",
-  lucknow: "https://picsum.photos/seed/interior-lucknow/2200/1200",
-  ahmedabad: "https://picsum.photos/seed/interior-ahmedabad/2200/1200",
-  nagpur: "https://picsum.photos/seed/interior-nagpur/2200/1200",
-  jaipur: "https://picsum.photos/seed/interior-jaipur/2200/1200",
-  surat: "https://picsum.photos/seed/interior-surat/2200/1200",
-};
-
-const guaranteedFallbackHero =
-  "https://picsum.photos/seed/interiorwala-city-hero/2200/1200";
 
 const packageImages = [
   "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=900&q=80",
@@ -36,7 +19,6 @@ export default async function LocationCityPage({ params }: LocationCityPageProps
 
   if (!cityData) notFound();
 
-  const heroImage = cityHeroImages[cityData.slug] || guaranteedFallbackHero;
 
   const packageCards = [
     {
@@ -65,12 +47,7 @@ export default async function LocationCityPage({ params }: LocationCityPageProps
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20 pt-3">
       <section className="relative overflow-hidden rounded-b-[2rem] py-20 text-white md:py-24">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${heroImage}')` }}
-        />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/45" />
+        <HeroSlideshow images={["/service_page_hero.jpg","/about-hero.jpg","/background.jpg"]} />
 
         <div className="relative mx-auto max-w-6xl px-6 text-left">
           <p className="text-xs font-semibold tracking-[0.24em] text-cyan-200/95">
