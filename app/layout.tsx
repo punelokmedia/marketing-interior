@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
- title: "InteriorWala",
-  description: "Interior design website",
+ title: "BenzArc - Premium Interiors",
+  description: "Transform your space with Benzarc. We offer premium interior design solutions tailored to your style, needs and lifestyle.",
 };
 
 export default function RootLayout({
