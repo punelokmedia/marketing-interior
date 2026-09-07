@@ -46,7 +46,7 @@ export default function TrustedPartners() {
         </motion.p>
 
         {/* Logos Grid */}
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {partners.map((item, index) => (
             <motion.div
               key={item.name}
@@ -54,7 +54,11 @@ export default function TrustedPartners() {
               whileInView={{ opacity: 1, scale: 1 }}
               whileHover={{ y: -6, scale: 1.02 }}
               transition={{ duration: 0.25, delay: index * 0.04 }}
-              className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:border-fuchsia-200 hover:shadow-xl"
+              className={`group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:border-fuchsia-200 hover:shadow-xl ${
+                index === partners.length - 1 && partners.length % 4 === 1
+                  ? "lg:col-span-2 lg:col-start-2"
+                  : ""
+              }`}
             >
               <div className="flex min-h-[120px] flex-col items-center justify-center gap-3">
                 <div className="relative h-16 w-full">
