@@ -1,6 +1,5 @@
 "use client";
 
-import HeroSlideshow from "../HeroSlideshow";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import QuoteForm from "../QuoteForm";
@@ -10,18 +9,28 @@ type HeaderProps = {
   title?: string;
   subtitle?: string;
   showForm?: boolean;
-  image?: string;
 };
 
 export default function Header({
   title,
   subtitle,
   showForm = true,
-  image,
 }: HeaderProps) {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white">
-      <HeroSlideshow images={[image || "/herosection-image.jpg", "/about-hero.jpg", "/service_page_hero.jpg"]} />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <video
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/15" />
+      </div>
       <div className="absolute -left-36 top-24 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
 

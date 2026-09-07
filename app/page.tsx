@@ -13,7 +13,6 @@ export default function Home() {
     <main>
       <FloatingContactBar />
       <Header
-        image="/herosection-image.jpg"
         showForm={true}
       />
       <WhyChoose />
