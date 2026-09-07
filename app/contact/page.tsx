@@ -129,7 +129,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            CONTACT INTERIORWALA
+            CONTACT BENZ ARCHITECTURE
           </motion.p>
           <motion.h1
             className="mx-auto mt-4 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl md:text-6xl"

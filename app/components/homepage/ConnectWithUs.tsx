@@ -88,7 +88,7 @@ export default function ConnectWithUs() {
           </div>
 
           <div className="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
-            3500+ happy families trusted InteriorWala to transform their homes.
+            3500+ happy families trusted Benz Architecture to transform their homes.
           </div>
         </motion.div>
       </div>

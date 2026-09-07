@@ -18,7 +18,7 @@ import { PiForkKnife, PiHardHat } from "react-icons/pi";
 import OpenQuoteButton from "../components/OpenQuoteButton";
 
 export const metadata: Metadata = {
-  title: "Commercial Interiors | InteriorWala",
+  title: "Commercial Interiors | Benz Architecture",
   description:
     "Thoughtfully designed offices, retail spaces, restaurants, cafés, clinics and wellness interiors.",
 };

@@ -16,8 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
- title: "BenzArc - Premium Interiors",
-  description: "Transform your space with Benzarc. We offer premium interior design solutions tailored to your style, needs and lifestyle.",
+  metadataBase: new URL("https://benzarc.com"),
+  applicationName: "Benz Architecture",
+  title: "Benz Architecture | Architecture & Interior Design",
+  description: "Transform your space with Benz Architecture. We offer premium interior design solutions tailored to your style, needs and lifestyle.",
+  openGraph: {
+    siteName: "Benz Architecture",
+    title: "Benz Architecture | Architecture & Interior Design",
+    description: "Architecture and premium interior design tailored to your style, needs and lifestyle.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

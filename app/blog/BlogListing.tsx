@@ -120,7 +120,7 @@ export default function BlogListing() {
         <HeroSlideshow images={["/blog-header.jpg","/blog-image.jpg","/blog-image-third.jpg"]} />
         <div className="relative">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-red-300">
-            The InteriorWala Journal
+            The Benz Architecture Journal
           </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Latest Insights &amp; Inspirations
@@ -157,7 +157,7 @@ export default function BlogListing() {
                       <span className="flex size-8 items-center justify-center rounded-full bg-slate-900 text-xs font-bold text-white">
                         IW
                       </span>
-                      <span className="font-medium text-slate-700">By InteriorWala</span>
+                      <span className="font-medium text-slate-700">By Benz Architecture</span>
                       <span aria-hidden="true">•</span>
                       <time>{featured.date}</time>
                     </div>

@@ -17,7 +17,7 @@ export default function LuxurySignaturePage() {
         </Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-stone-500">The Luxury Signature collection</p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl">A home with your signature in every detail.</h1>
-        <p className="mt-5 max-w-2xl text-lg text-stone-600">Explore Benzarc interior inspiration shaped around individual taste, considered materials and refined detailing. Imagine the possibilities for your home, then request a personalised design and quote.</p>
+        <p className="mt-5 max-w-2xl text-lg text-stone-600">Explore Benz Architecture interior inspiration shaped around individual taste, considered materials and refined detailing. Imagine the possibilities for your home, then request a personalised design and quote.</p>
         <OpenQuoteButton label="Get My Personalised Quote" className="mt-5 inline-flex rounded-full bg-fuchsia-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-800" />
       </header>
 
@@ -36,7 +36,7 @@ export default function LuxurySignaturePage() {
       <section className="mx-auto max-w-5xl bg-stone-900 px-6 py-14 text-white sm:px-12 sm:py-20">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">The value is in the detail</p>
         <h2 className="mt-4 max-w-3xl text-3xl font-bold sm:text-5xl">Beautiful to look at. Thoughtful to live in.</h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-300">The value of a Benzarc interior comes from choices that work together: layouts shaped around your routines, a cohesive material palette, and attention to the junctions, proportions and finishes you see every day. Build your brief around the details that matter most to you.</p>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-300">The value of a Benz Architecture interior comes from choices that work together: layouts shaped around your routines, a cohesive material palette, and attention to the junctions, proportions and finishes you see every day. Build your brief around the details that matter most to you.</p>
         <div className="mt-10 grid gap-8 sm:grid-cols-3">
           <div><h3 className="text-lg font-semibold">Designed around you</h3><p className="mt-2 text-stone-300">Consider furniture proportions, movement and storage together to create a home that feels personal and practical.</p></div>
           <div><h3 className="text-lg font-semibold">Materials with intention</h3><p className="mt-2 text-stone-300">Choose textures and finishes for their look, upkeep and suitability, so your investment supports the way you live.</p></div>

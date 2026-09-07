@@ -8,9 +8,20 @@ import HowItWorks from "./components/homepage/Howitworks";
 import ConnectWithUs from "./components/homepage/ConnectWithUs";
 import FAQ from "./components/homepage/faq";
 import FloatingContactBar from "./components/homepage/FloatingContactBar";
+export const metadata = { alternates: { canonical: "https://benzarc.com" } };
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Benz Architecture",
+          alternateName: "BenzArc",
+          url: "https://benzarc.com/",
+        }) }}
+      />
       <FloatingContactBar />
       <Header
         showForm={true}

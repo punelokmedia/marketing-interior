@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ access_key: "766c1e2d-4892-4053-88fe-efcd4f77d38c", subject: `New Lead from ${source}`, from_name: "InteriorWala Website", name, email, phone, message, source, page_url: pageUrl, whatsapp_updates: body.whatsappUpdates ? "Yes" : "No" }),
+        body: JSON.stringify({ access_key: "766c1e2d-4892-4053-88fe-efcd4f77d38c", subject: `New Lead from ${source}`, from_name: "Benz Architecture Website", name, email, phone, message, source, page_url: pageUrl, whatsapp_updates: body.whatsappUpdates ? "Yes" : "No" }),
         signal: AbortSignal.timeout(10000),
       });
       const result = await response.json();

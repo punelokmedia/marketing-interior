@@ -19,9 +19,9 @@ import { FaQuoteLeft } from "react-icons/fa";
 import OpenQuoteButton from "../components/OpenQuoteButton";
 
 export const metadata: Metadata = {
-  title: "About Us | InteriorWala",
+  title: "About Us | Benz Architecture",
   description:
-    "Meet InteriorWala and discover how we create thoughtful, functional interiors made for everyday living.",
+    "Meet Benz Architecture and discover how we create thoughtful, functional interiors made for everyday living.",
 };
 
 const highlights = [
@@ -73,7 +73,7 @@ export default function AboutPage() {
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-40 pt-16 md:px-8 lg:grid-cols-[0.9fr_1.25fr] lg:items-center lg:gap-16 lg:pb-44 lg:pt-20">
           <div>
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-red-400">
-              About InteriorWala
+              About Benz Architecture
             </p>
             <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
               We Design Spaces
@@ -81,7 +81,7 @@ export default function AboutPage() {
               You&apos;ll <span className="text-red-500">Love to Live In</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-white/80 sm:text-lg">
-              At InteriorWala, we believe every space has the potential to inspire. We blend
+              At Benz Architecture, we believe every space has the potential to inspire. We blend
               creativity, functionality, and quality to design interiors that reflect your style
               and enhance everyday living.
             </p>
