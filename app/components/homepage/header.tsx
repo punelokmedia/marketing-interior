@@ -25,16 +25,9 @@ export default function Header({
       <div className="absolute -left-36 top-24 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-24 md:grid-cols-2">
-        <div className="max-w-2xl">
-          <motion.span
-            className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-white/90 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            MODERN INTERIOR SOLUTIONS
-          </motion.span>
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-24 md:grid-cols-2 md:items-end">
+        <div className="max-w-2xl md:col-start-1 md:row-start-1">
+         
           <motion.h1
             className="mt-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl"
             initial={{ opacity: 0, y: 40 }}
@@ -52,56 +45,42 @@ export default function Header({
           >
             {subtitle}
           </motion.p>
-
-          <motion.div
-            className="mt-8 flex flex-wrap items-center gap-4 text-sm text-white/85"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
-          >
-            <span className="rounded-full border border-white/25 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
-              7+ Years Experience
-            </span>
-            <span className="rounded-full border border-white/25 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
-              4.9/5 Client Satisfaction
-            </span>
-          </motion.div>
-
-          <motion.div
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-          >
-            <OpenQuoteButton
-              label="Get Free Consultation"
-              className="rounded-full bg-white px-8 py-3 text-center text-sm font-semibold text-slate-900 shadow-xl shadow-black/25"
-            />
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/"
-                className="block rounded-full border border-white/70 bg-white/10 px-8 py-3 text-center text-sm font-semibold backdrop-blur-sm"
-              >
-                Explore Designs
-              </Link>
-            </motion.div>
-          </motion.div>
         </div>
 
-        {/* RIGHT SIDE FORM */}
+        {/* Show the form before the buttons on mobile. */}
         {showForm && (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-10 flex justify-end md:mt-0"
+            className="flex justify-center md:col-start-2 md:row-start-1 md:row-span-2 md:justify-end"
           >
             <div className="w-full max-w-md">
               <QuoteForm />
             </div>
           </motion.div>
         )}
+
+          <motion.div
+            className="relative mt-2 flex w-full flex-col gap-4 md:col-start-1 md:row-start-2 md:top-6 md:mt-0 md:flex-row"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+          >
+            <OpenQuoteButton
+              label="Get Free Consultation"
+              className="flex min-h-14 flex-1 items-center justify-center rounded-full bg-white px-6 py-4 text-center text-base font-semibold text-slate-900 shadow-xl shadow-black/25"
+            />
+
+            <motion.div className="flex flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="/"
+                className="flex min-h-14 w-full items-center justify-center rounded-full border border-white/70 bg-white/10 px-6 py-4 text-center text-base font-semibold backdrop-blur-sm"
+              >
+                Explore Designs
+              </Link>
+            </motion.div>
+          </motion.div>
       </div>
     </section>
   );

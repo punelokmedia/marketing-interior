@@ -14,8 +14,6 @@ export default function Home() {
       <FloatingContactBar />
       <Header
         image="/herosection-image.jpg"
-        title="Beautiful Homes Made Simple"
-        subtitle="Get your dream interiors designed with ease, with elegant spaces that feel timeless."
         showForm={true}
       />
       <WhyChoose />

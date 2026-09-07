@@ -1,41 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { IconType } from "react-icons";
-import {
-  FaBolt,
-  FaCogs,
-  FaGem,
-  FaHandshake,
-  FaHome,
-  FaIndustry,
-  FaLayerGroup,
-  FaLightbulb,
-  FaPaintRoller,
-  FaShieldAlt,
-  FaTools,
-  FaWarehouse,
-} from "react-icons/fa";
+import Image from "next/image";
 
 type Partner = {
   name: string;
   category: string;
-  icon: IconType;
+  logo: string;
 };
 
 const partners: Partner[] = [
-  { name: "Jaquar", category: "Bathware", icon: FaGem },
-  { name: "Saint-Gobain", category: "Glass", icon: FaShieldAlt },
-  { name: "Century Ply", category: "Plywood", icon: FaLayerGroup },
-  { name: "Bosch", category: "Appliances", icon: FaTools },
-  { name: "Siemens", category: "Electronics", icon: FaBolt },
-  { name: "Hettich", category: "Hardware", icon: FaCogs },
-  { name: "Greenlam", category: "Laminates", icon: FaPaintRoller },
-  { name: "Samsung", category: "Smart Home", icon: FaLightbulb },
-  { name: "Hafele", category: "Fittings", icon: FaIndustry },
-  { name: "Ebco", category: "Accessories", icon: FaWarehouse },
-  { name: "Kohler", category: "Sanitary", icon: FaHome },
-  { name: "Merino", category: "Surfaces", icon: FaHandshake },
+  { name: "Jaquar", category: "Bathware", logo: "/logos/Jaquar-logo.png" },
+  { name: "Saint-Gobain", category: "Glass", logo: "/logos/saint-gobain.png" },
+  { name: "Century Ply", category: "Plywood", logo: "/logos/Century-Plyboards-Logo.png" },
+  { name: "Bosch", category: "Appliances", logo: "/logos/bosch-logo.png" },
+  { name: "Siemens", category: "Electronics", logo: "/logos/Siemens-Logo.wine.png" },
+  { name: "Hettich", category: "Hardware", logo: "/logos/hettich-logo.png" },
+  { name: "Greenlam", category: "Laminates", logo: "/logos/Greenlam-Laminates-logo.png" },
+  { name: "Samsung", category: "Smart Home", logo: "/logos/samsung-logo-electronics-logo.png" },
+  { name: "Hafele", category: "Fittings", logo: "/logos/hafele-logo.png" },
+  { name: "Ebco", category: "Accessories", logo: "/logos/ebco-private-.png" },
+  { name: "Kohler", category: "Sanitary", logo: "/logos/kohler-.png" },
+  { name: "Merino", category: "Surfaces", logo: "/logos/meriro.png" },
 ];
 
 export default function TrustedPartners() {
@@ -74,8 +60,14 @@ export default function TrustedPartners() {
               className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:border-fuchsia-200 hover:shadow-xl"
             >
               <div className="flex min-h-[120px] flex-col items-center justify-center gap-3">
-                <div className="flex size-12 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition group-hover:bg-fuchsia-100 group-hover:text-fuchsia-700">
-                  <item.icon className="text-xl" />
+                <div className="relative h-16 w-full">
+                  <Image
+                    src={item.logo}
+                    alt={`${item.name} logo`}
+                    fill
+                    sizes="(max-width: 639px) 50vw, (max-width: 767px) 33vw, (max-width: 1023px) 25vw, 180px"
+                    className="object-contain"
+                  />
                 </div>
                 <p className="text-sm font-semibold text-slate-800">{item.name}</p>
                 <p className="text-xs text-slate-500">{item.category}</p>
