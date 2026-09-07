@@ -7,8 +7,8 @@ import QuoteForm from "../QuoteForm";
 import OpenQuoteButton from "../OpenQuoteButton";
 
 type HeaderProps = {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   showForm?: boolean;
   image?: string;
 };
