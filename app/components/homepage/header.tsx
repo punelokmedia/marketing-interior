@@ -20,6 +20,8 @@ export default function Header({
     <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <video
+          // Video extensions can add classes before React hydrates this element.
+          suppressHydrationWarning
           className="h-full w-full object-cover"
           autoPlay
           muted
