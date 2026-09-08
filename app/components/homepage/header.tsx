@@ -2,22 +2,20 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import QuoteForm from "../QuoteForm";
 import OpenQuoteButton from "../OpenQuoteButton";
 
 type HeaderProps = {
   title?: string;
   subtitle?: string;
-  showForm?: boolean;
 };
 
 export default function Header({
   title,
   subtitle,
-  showForm = true,
 }: HeaderProps) {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white">
+    <>
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <video
           // Video extensions can add classes before React hydrates this element.
@@ -58,22 +56,8 @@ export default function Header({
           </motion.p>
         </div>
 
-        {/* Show the form before the buttons on mobile. */}
-        {showForm && (
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="flex justify-center md:col-start-2 md:row-start-1 md:row-span-2 md:justify-end"
-          >
-            <div className="w-full max-w-md">
-              <QuoteForm />
-            </div>
-          </motion.div>
-        )}
-
-          <motion.div
-            className="relative mt-2 flex w-full flex-col gap-4 md:col-start-1 md:row-start-2 md:top-6 md:mt-0 md:flex-row"
+            className="relative mt-2 hidden w-full flex-col gap-4 md:col-start-1 md:row-start-2 md:top-6 md:mt-0 md:flex md:flex-row"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
@@ -85,7 +69,7 @@ export default function Header({
 
             <motion.div className="flex flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Link
-                href="/"
+                href="/gallery"
                 className="flex min-h-14 w-full items-center justify-center rounded-full border border-white/70 bg-white/10 px-6 py-4 text-center text-base font-semibold backdrop-blur-sm"
               >
                 Explore Designs
@@ -93,6 +77,20 @@ export default function Header({
             </motion.div>
           </motion.div>
       </div>
-    </section>
+      </section>
+
+      <div className="flex flex-col gap-3 bg-slate-950 px-6 pb-8 md:hidden">
+        <OpenQuoteButton
+          label="Get Free Consultation"
+          className="flex min-h-14 w-full items-center justify-center rounded-full bg-white px-6 py-4 text-center text-base font-semibold text-slate-900 shadow-xl shadow-black/25"
+        />
+        <Link
+          href="/gallery"
+          className="flex min-h-14 w-full items-center justify-center rounded-full border border-white/70 bg-white/10 px-6 py-4 text-center text-base font-semibold text-white backdrop-blur-sm"
+        >
+          Explore Designs
+        </Link>
+      </div>
+    </>
   );
 }

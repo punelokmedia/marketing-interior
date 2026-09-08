@@ -11,8 +11,8 @@ The blog newsletter is separate and is not connected by this integration.
 4. Create `.env.local` in the project root with:
 
    ```dotenv
-   SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-   SUPABASE_SECRET_KEY=sb_secret_YOUR_SECRET
+   SUPABASE_URL=
+   SUPABASE_SECRET_KEY=sb_secret
    ```
 
    Keep the secret on the server. Do not prefix it with `NEXT_PUBLIC_`, commit it, or paste it in chat.

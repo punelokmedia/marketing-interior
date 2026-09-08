@@ -5,7 +5,14 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { BiSolidPhoneCall } from "react-icons/bi";
-import { HiChevronDown, HiOutlineMenuAlt3, HiX } from "react-icons/hi";
+import {
+  HiChevronDown,
+  HiHome,
+  HiOutlineMenuAlt3,
+  HiPhotograph,
+  HiTag,
+  HiX,
+} from "react-icons/hi";
 
 type DropdownItem = { name: string; href: string };
 type MegaDropdownGroup = { title: string; items: DropdownItem[] };
@@ -47,6 +54,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [showBottomNav, setShowBottomNav] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const openDropdown = (name: string) => {
@@ -66,13 +74,28 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      setShowBottomNav(window.scrollY > 120);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+    <>
+    <header
+      className={`sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/90 backdrop-blur-xl transition-transform duration-300 ease-out motion-reduce:transition-none md:translate-y-0 ${
+        showBottomNav && !mobileOpen
+          ? "-translate-y-full md:translate-y-0"
+          : "translate-y-0"
+      }`}
+    >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3" aria-label="Go to home">
@@ -82,7 +105,7 @@ export default function Navbar() {
             width={1254}
             height={1254}
             priority
-            className="h-14 w-auto md:h-16"
+            className="h-12 w-auto md:h-16"
           />
         </Link>
 
@@ -214,7 +237,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 pb-5 pt-3 md:hidden">
+        <div id="mobile-navigation-menu" className="border-t border-slate-200 bg-white px-4 pb-5 pt-3 md:hidden">
           <div className="space-y-1">
             {navLinks.map((link) => (
               <div key={link.name} className="rounded-xl border border-slate-200/80 bg-slate-50/70">
@@ -317,6 +340,72 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
     </header>
+
+      <nav
+        aria-label="Quick mobile navigation"
+        className={`mobile-bottom-nav fixed inset-x-0 bottom-0 z-[60] border-t border-slate-200 bg-white/95 px-3 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_rgba(15,23,42,0.12)] backdrop-blur-xl transition-[opacity,transform,visibility] duration-300 ease-out motion-reduce:transition-none md:hidden ${
+          showBottomNav && !mobileOpen
+            ? "visible translate-y-0 opacity-100"
+            : "invisible translate-y-full opacity-0"
+        }`}
+      >
+        <div className="relative mx-auto grid h-[4.5rem] max-w-md grid-cols-5 items-end">
+          <Link
+            href="/about"
+            className="flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl text-[0.65rem] font-semibold text-slate-700"
+            aria-label="Company"
+          >
+            <HiHome className="size-5 text-slate-900" aria-hidden="true" />
+            <span>Company</span>
+          </Link>
+          <Link
+            href="/services"
+            className="flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl text-[0.65rem] font-semibold text-slate-700"
+            aria-label="Offers"
+          >
+            <HiTag className="size-5 text-slate-900" aria-hidden="true" />
+            <span>Offers</span>
+          </Link>
+          <Link
+            href="/"
+            className="absolute left-1/2 top-0 flex size-[4.25rem] -translate-x-1/2 -translate-y-1/3 items-center justify-center rounded-full border-4 border-white bg-white shadow-[0_4px_18px_rgba(15,23,42,0.2)]"
+            aria-label="Go to home"
+          >
+            <Image
+              src="/benz-logo.png"
+              alt=""
+              width={1254}
+              height={1254}
+              className="size-12 rounded-full object-contain"
+            />
+          </Link>
+          <Link
+            href="/gallery"
+            className="col-start-4 flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl text-[0.65rem] font-semibold text-slate-700"
+            aria-label="Gallery"
+          >
+            <HiPhotograph className="size-5 text-slate-900" aria-hidden="true" />
+            <span>Gallery</span>
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="col-start-5 flex min-h-12 flex-col items-center justify-center gap-1 rounded-xl text-[0.65rem] font-semibold text-slate-700"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation-menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? (
+              <HiX className="size-5 text-slate-900" aria-hidden="true" />
+            ) : (
+              <HiOutlineMenuAlt3 className="size-5 text-slate-900" aria-hidden="true" />
+            )}
+            <span>Menu</span>
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }

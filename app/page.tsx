@@ -23,9 +23,7 @@ export default function Home() {
         }) }}
       />
       <FloatingContactBar />
-      <Header
-        showForm={true}
-      />
+      <Header />
       <WhyChoose />
       <BudgetSection />
       <Services />

@@ -5,7 +5,7 @@ import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 export default function FloatingContactBar() {
   return (
-    <div className="fixed right-3 top-1/2 z-40 -translate-y-1/2">
+    <div className="fixed right-3 top-1/2 z-40 -translate-y-1/2 max-md:bottom-[calc(5.75rem+env(safe-area-inset-bottom))] max-md:top-auto max-md:translate-y-0">
       <div className="flex flex-col gap-3">
         <motion.a
           href="tel:+919067777030"
