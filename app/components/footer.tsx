@@ -90,7 +90,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-slate-800 py-4 text-center text-sm text-slate-400">
-        © 2026 Benz Architecture. All rights reserved.
+        © 2016 Benz Architecture. All rights reserved.
       </div>
     </footer>
   );

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const highlights = [
-  { icon: FiCalendar, value: "7+", label: "Years Experience" },
+  { icon: FiCalendar, value: "10+", label: "Years Experience" },
   { icon: FiUsers, value: "1200+", label: "Happy Clients" },
   { icon: FiHome, value: "1500+", label: "Projects Completed" },
   { icon: FiAward, value: "4.9/5", label: "Client Satisfaction" },
