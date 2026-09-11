@@ -15,7 +15,7 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white">
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white md:items-end">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <video
           // Video extensions can add classes before React hydrates this element.
@@ -34,7 +34,7 @@ export default function Header({
       <div className="absolute -left-36 top-24 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-24 md:grid-cols-2 md:items-end">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-24 md:grid-cols-2 md:items-end md:pb-12">
         <div className="max-w-2xl md:col-start-1 md:row-start-1">
          
           <motion.h1
@@ -57,7 +57,7 @@ export default function Header({
         </div>
 
           <motion.div
-            className="relative mt-2 hidden w-full flex-col gap-4 md:col-start-1 md:row-start-2 md:top-6 md:mt-0 md:flex md:flex-row"
+            className="relative mt-2 hidden w-full max-w-2xl flex-col gap-4 md:col-span-2 md:col-start-1 md:row-start-2 md:mt-0 md:flex md:flex-row"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
