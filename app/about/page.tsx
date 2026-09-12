@@ -78,7 +78,7 @@ export default function AboutPage() {
             <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
               We Design Spaces
               <br />
-              You&apos;ll <span className="text-red-500">Love to Live In</span>
+              You&apos;ll <span className="text-white/90">Love to Live In</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-white/80 sm:text-lg">
               At Benz Architecture, we believe every space has the potential to inspire. We blend
