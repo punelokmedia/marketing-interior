@@ -154,8 +154,6 @@ export default function Header({
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/15" />
       </div>
-      <div className="absolute -left-36 top-24 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
-      <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
 
       <div className="absolute inset-x-0 bottom-0 z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-8 md:grid-cols-2 md:items-end md:pb-12">
         <div className="max-w-2xl md:col-start-1 md:row-start-1">
