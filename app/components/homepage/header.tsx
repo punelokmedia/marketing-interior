@@ -2,7 +2,17 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import OpenQuoteButton from "../OpenQuoteButton";
+
+// Replace each src with its own file from public/videos.
+// Order: top left, top right, bottom left, bottom right.
+const heroVideos = [
+  { id: "top-left", src: "/videos/hero-background_1.mp4" },
+  { id: "top-right", src: "/videos/hero-background_2.mp4" },
+  { id: "bottom-left", src: "/videos/hero-background_3.mp4" },
+  { id: "bottom-right", src: "/videos/hero-background_4.mp4" },
+];
 
 type HeaderProps = {
   title?: string;
@@ -13,28 +23,141 @@ export default function Header({
   title,
   subtitle,
 }: HeaderProps) {
+  const heroRef = useRef<HTMLElement>(null);
+  const musicRef = useRef<HTMLAudioElement>(null);
+  const musicPausedByUser = useRef(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicError, setMusicError] = useState(false);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const music = musicRef.current;
+    if (!hero || !music) return;
+    music.volume = 0.35;
+    let heroVisible = false;
+    let disposed = false;
+    let starting = false;
+
+    const tryAutoplay = () => {
+      if (disposed || starting || !heroVisible || document.hidden ||
+          musicPausedByUser.current || !music.paused) return;
+      starting = true;
+      void music.play().catch((error: unknown) => {
+        if (disposed) return;
+        if (error instanceof DOMException && error.name === "NotAllowedError") {
+          setAutoplayBlocked(true);
+        } else if (!(error instanceof DOMException && error.name === "AbortError")) {
+          setMusicError(true);
+        }
+      }).finally(() => { starting = false; });
+    };
+
+    const retryOnInteraction = (event: Event) => {
+      // Let the music button handle its own click without toggling twice.
+      if (event.target instanceof Element && event.target.closest("[data-hero-music-control]")) return;
+      tryAutoplay();
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      if (!entry.isIntersecting) {
+        music.pause();
+      } else tryAutoplay();
+    });
+    const pauseWhenHidden = () => {
+      if (document.hidden) music.pause();
+      else tryAutoplay();
+    };
+    observer.observe(hero);
+    music.addEventListener("canplay", tryAutoplay);
+    document.addEventListener("pointerup", retryOnInteraction);
+    document.addEventListener("keydown", retryOnInteraction);
+    document.addEventListener("visibilitychange", pauseWhenHidden);
+    return () => {
+      disposed = true;
+      observer.disconnect();
+      music.removeEventListener("canplay", tryAutoplay);
+      document.removeEventListener("pointerup", retryOnInteraction);
+      document.removeEventListener("keydown", retryOnInteraction);
+      document.removeEventListener("visibilitychange", pauseWhenHidden);
+      music.pause();
+    };
+  }, []);
+
+  const toggleMusic = async () => {
+    const music = musicRef.current;
+    if (!music) return;
+    setMusicError(false);
+    if (!music.paused) {
+      musicPausedByUser.current = true;
+      music.pause();
+      return;
+    }
+    try {
+      musicPausedByUser.current = false;
+      await music.play();
+    } catch {
+      setMusicError(true);
+    }
+  };
+
   return (
     <>
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 text-white md:items-end">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <section ref={heroRef} className="relative overflow-hidden bg-slate-950 text-white">
+      <audio
+        ref={musicRef}
+        src="/hero_section_background_music.mp3"
+        autoPlay
+        loop
+        preload="auto"
+        onPlay={() => {
+          setMusicPlaying(true);
+          setAutoplayBlocked(false);
+          setMusicError(false);
+        }}
+        onPause={() => setMusicPlaying(false)}
+        onError={() => setMusicError(true)}
+      />
+      <div className="absolute bottom-3 right-3 z-20 flex flex-col items-end gap-2">
+        {autoplayBlocked && !musicError && <p role="status" className="max-w-64 rounded bg-black/75 px-3 py-2 text-xs">Tap anywhere to enable background music.</p>}
+        {musicError && <p role="status" className="rounded bg-black/75 px-3 py-2 text-xs">Music could not play. Please try again.</p>}
+        <button
+          data-hero-music-control
+          type="button"
+          onClick={toggleMusic}
+          aria-pressed={musicPlaying}
+          aria-label="Hero background music"
+          className="min-h-11 rounded-full border border-white/50 bg-black/65 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          {musicPlaying ? "Pause music" : "Play music"}
+        </button>
+      </div>
+      <div className="pointer-events-none relative overflow-hidden" aria-hidden="true">
+        <div className="grid grid-cols-2 gap-1 bg-slate-950">
+        {heroVideos.map(({ id, src }) => (
+        <div key={id} className="relative aspect-video min-w-0 overflow-hidden bg-black">
         <video
           // Video extensions can add classes before React hydrates this element.
           suppressHydrationWarning
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          <source src={src} type="video/mp4" />
         </video>
+        </div>
+        ))}
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/15" />
       </div>
       <div className="absolute -left-36 top-24 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-24 md:grid-cols-2 md:items-end md:pb-12">
+      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-8 md:grid-cols-2 md:items-end md:pb-12">
         <div className="max-w-2xl md:col-start-1 md:row-start-1">
          
           <motion.h1
