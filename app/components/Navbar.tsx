@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { BiSolidPhoneCall } from "react-icons/bi";
@@ -51,11 +52,15 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [showBottomNav, setShowBottomNav] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled && !mobileOpen;
 
   const openDropdown = (name: string) => {
     if (closeTimerRef.current) {
@@ -75,6 +80,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
       setShowBottomNav(window.scrollY > 120);
     };
 
@@ -90,10 +96,10 @@ export default function Navbar() {
   return (
     <>
     <header
-      className={`sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/90 backdrop-blur-xl transition-transform duration-300 ease-out motion-reduce:transition-none md:translate-y-0 ${
-        showBottomNav && !mobileOpen
-          ? "-translate-y-full md:translate-y-0"
-          : "translate-y-0"
+      className={`${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 w-full border-b transition-colors duration-300 ease-out motion-reduce:transition-none ${
+        transparent
+          ? "border-transparent bg-transparent text-white"
+          : "border-slate-200/70 bg-white/95 text-slate-800 shadow-sm backdrop-blur-xl"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
@@ -125,12 +131,12 @@ export default function Navbar() {
               <motion.div whileHover={{ y: -2 }}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-slate-800 hover:text-black"
+                  className={`flex items-center gap-1 whitespace-nowrap text-sm font-semibold ${transparent ? "text-white hover:text-white/80" : "text-slate-800 hover:text-black"}`}
                 >
                   {link.name}
                   {(link.dropdown || link.megaDropdown) && (
                     <HiChevronDown
-                      className={`text-sm text-slate-500 transition-transform duration-200 group-hover:text-black ${
+                      className={`text-sm transition-transform duration-200 ${transparent ? "text-white/80 group-hover:text-white" : "text-slate-500 group-hover:text-black"} ${
                         activeDropdown === link.name ? "rotate-180" : ""
                       }`}
                     />
@@ -205,7 +211,7 @@ export default function Navbar() {
           {/* CALL BUTTON */}
           <a
             href="tel:+916205878945"
-            className="flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:bg-slate-100"
+            className="flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm transition hover:bg-slate-100"
           >
             <span className="flex items-center justify-center w-8 h-8 rounded-full">
               <BiSolidPhoneCall className="text-red-500 text-lg" />
@@ -228,7 +234,9 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-slate-700 md:hidden"
+          className={`inline-flex items-center justify-center rounded-lg border p-2 md:hidden ${transparent ? "border-white/60 text-white" : "border-slate-200 text-slate-700"}`}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation-menu"
           aria-label="Toggle navigation"
         >
           {mobileOpen ? <HiX className="size-5" /> : <HiOutlineMenuAlt3 className="size-5" />}

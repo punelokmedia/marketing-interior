@@ -5,15 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import OpenQuoteButton from "../OpenQuoteButton";
 
-// Replace each src with its own file from public/videos.
-// Order: top left, top right, bottom left, bottom right.
-const heroVideos = [
-  { id: "top-left", src: "/videos/hero-background_1.mp4" },
-  { id: "top-right", src: "/videos/hero-background_2.mp4" },
-  { id: "bottom-left", src: "/videos/hero-background_3.mp4" },
-  { id: "bottom-right", src: "/videos/hero-background_4.mp4" },
-];
-
 type HeaderProps = {
   title?: string;
   subtitle?: string;
@@ -133,10 +124,7 @@ export default function Header({
           {musicPlaying ? "Pause music" : "Play music"}
         </button>
       </div>
-      <div className="pointer-events-none relative overflow-hidden" aria-hidden="true">
-        <div className="grid grid-cols-2 gap-1 bg-slate-950">
-        {heroVideos.map(({ id, src }) => (
-        <div key={id} className="relative aspect-video min-w-0 overflow-hidden bg-black">
+      <div className="pointer-events-none relative aspect-video w-full overflow-hidden bg-black" aria-hidden="true">
         <video
           // Video extensions can add classes before React hydrates this element.
           suppressHydrationWarning
@@ -147,22 +135,21 @@ export default function Header({
           playsInline
           preload="auto"
         >
-          <source src={src} type="video/mp4" />
+          <source src="/videos/hero-background_4.mp4" type="video/mp4" />
         </video>
-        </div>
-        ))}
-        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/15" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-8 md:grid-cols-2 md:items-end md:pb-12">
-        <div className="max-w-2xl md:col-start-1 md:row-start-1">
+      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-8 md:pb-12">
+        <div className="max-w-2xl">
          
           <motion.h1
             className="mt-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+
+            
           >
             {title}
           </motion.h1>
@@ -178,7 +165,7 @@ export default function Header({
         </div>
 
           <motion.div
-            className="relative mt-2 hidden w-full max-w-2xl flex-col gap-4 md:col-span-2 md:col-start-1 md:row-start-2 md:mt-0 md:flex md:flex-row"
+            className="relative mt-2 hidden w-full max-w-2xl flex-col gap-4 md:mt-0 md:flex md:flex-row"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
