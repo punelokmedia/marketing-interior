@@ -133,9 +133,10 @@ export default function Header({
           muted
           loop
           playsInline
+          poster="/videos/hero-poster.jpg"
           preload="auto"
         >
-          <source src="/videos/hero-background_4.mp4" type="video/mp4" />
+          <source src="/videos/hero-web.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/15" />
       </div>
