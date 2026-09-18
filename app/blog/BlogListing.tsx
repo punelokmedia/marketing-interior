@@ -161,7 +161,7 @@ export default function BlogListing() {
                       <span aria-hidden="true">•</span>
                       <time>{featured.date}</time>
                     </div>
-                    <p className="mt-4 leading-7 text-slate-600">{featured.description}</p>
+                    <p className="mt-4 leading-7 text-slate-700">{featured.description}</p>
                     <ReadMore />
                   </div>
                 </article>
@@ -184,7 +184,7 @@ export default function BlogListing() {
                     </div>
                     <h2 className="mt-3 text-xl font-bold leading-6">{article.title}</h2>
                     <time className="mt-2 block text-sm text-slate-500">{article.date}</time>
-                    <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">
+                    <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-700">
                       {article.description}
                     </p>
                     <ReadMore />

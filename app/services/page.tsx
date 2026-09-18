@@ -94,7 +94,7 @@ export default function ServicesPage() {
               />
               <div className="p-5">
                 <h2 className="text-2xl font-bold text-slate-900">{service.title}</h2>
-                <p className="mt-2 text-sm text-slate-600">{service.description}</p>
+                <p className="mt-2 text-sm text-slate-700">{service.description}</p>
                 <ul className="mt-4 space-y-1">
                   {service.points.map((point) => (
                     <li key={point} className="text-sm text-slate-700">

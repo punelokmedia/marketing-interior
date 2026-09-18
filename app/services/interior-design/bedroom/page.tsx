@@ -19,10 +19,10 @@ export default function BedroomCataloguePage() {
           ← Back to Interior Design
         </Link>
         <h1 className="mt-6 text-4xl font-bold text-slate-900 sm:text-5xl">Bedroom Design</h1>
-        <p className="mt-4 max-w-2xl text-slate-600">
+        <p className="mt-4 max-w-2xl text-slate-700">
           Explore our bedroom catalogue. Find inspiration for a space that fits your home and everyday needs.
         </p>
-        <p className="mt-3 text-sm text-slate-600">See something you love? Share your ideas for a quote tailored to your space.</p>
+        <p className="mt-3 text-sm text-slate-700">See something you love? Share your ideas for a quote tailored to your space.</p>
         <OpenQuoteButton label="Get My Personalised Quote" className="mt-5 inline-flex rounded-full bg-fuchsia-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-800" />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((filename, index) => (
@@ -52,7 +52,7 @@ export default function BedroomCataloguePage() {
         </div>
         <div className="mt-12 rounded-2xl bg-white p-6 text-center sm:p-10">
           <h2 className="text-2xl font-bold text-slate-900">Found a design you like?</h2>
-          <p className="mt-2 text-slate-600">Let’s tailor it to your space.</p>
+          <p className="mt-2 text-slate-700">Let’s tailor it to your space.</p>
           <OpenQuoteButton label="Get a Bedroom Quote" className="mt-5 inline-flex rounded-full bg-fuchsia-700 px-6 py-3 text-sm font-semibold text-white hover:bg-fuchsia-800" />
         </div>
       </div>

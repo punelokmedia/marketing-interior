@@ -119,7 +119,7 @@ export default function RenovationPage() {
               <h3 className="mt-2 text-xl font-semibold text-slate-900">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+              <p className="mt-2 text-sm text-slate-700">{step.description}</p>
             </article>
           ))}
         </div>
@@ -141,7 +141,7 @@ export default function RenovationPage() {
               />
               <div className="p-5">
                 <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{item.text}</p>
+                <p className="mt-2 text-sm text-slate-700">{item.text}</p>
               </div>
             </article>
           ))}

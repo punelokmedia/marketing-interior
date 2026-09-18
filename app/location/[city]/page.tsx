@@ -72,7 +72,7 @@ export default async function LocationCityPage({ params }: LocationCityPageProps
         <h2 className="text-center text-2xl font-bold text-slate-900 md:text-4xl">
           Interior Designers in {cityData.city}
         </h2>
-        <p className="mx-auto mt-4 max-w-5xl text-center text-slate-600">
+        <p className="mx-auto mt-4 max-w-5xl text-center text-slate-700">
           Our city team in {cityData.city} delivers thoughtful planning,
           personalized design themes, and quality execution for apartments and
           villas. We focus on practical layouts, elegant finishes, and on-time
@@ -119,7 +119,7 @@ export default async function LocationCityPage({ params }: LocationCityPageProps
               />
               <div className="border-t border-slate-200 p-5">
                 <h3 className="text-2xl font-bold text-slate-900">{pkg.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{pkg.description}</p>
+                <p className="mt-2 text-sm text-slate-700">{pkg.description}</p>
                 <p className="mt-3 text-sm text-slate-500">
                   Offer{" "}
                   <span className="line-through decoration-red-500">{pkg.oldPrice}</span>{" "}
@@ -169,7 +169,7 @@ export default async function LocationCityPage({ params }: LocationCityPageProps
             <h2 className="text-2xl font-bold text-slate-900">
               Areas we commonly serve
             </h2>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-2 text-sm text-slate-700">
               Local teams and partner vendors available across these nearby zones.
             </p>
 

@@ -133,7 +133,7 @@ export default function InteriorDesignPage() {
               />
               <div className="p-5">
                 <h3 className="text-2xl font-bold text-slate-900">{pkg.name}</h3>
-                <p className="mt-2 text-sm text-slate-600">{pkg.details}</p>
+                <p className="mt-2 text-sm text-slate-700">{pkg.details}</p>
                 {pkg.href && (
                   <Link href={pkg.href} className="mt-3 inline-block font-semibold text-fuchsia-700 after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-fuchsia-700">
                     Explore {pkg.name} →

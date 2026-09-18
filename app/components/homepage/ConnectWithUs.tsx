@@ -17,13 +17,13 @@ export default function ConnectWithUs() {
         >
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
-              <span className="inline-flex rounded-full bg-slate-100 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-slate-600">
+              <span className="inline-flex rounded-full bg-slate-100 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-slate-700">
                 CONTACT US
               </span>
               <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-4xl">
                 Let&apos;s design your dream home together
               </h2>
-              <p className="mt-4 text-base text-slate-600 md:text-lg">
+              <p className="mt-4 text-base text-slate-700 md:text-lg">
                 Share your idea and get expert guidance for interior planning,
                 budget, and execution timeline.
               </p>
@@ -34,7 +34,7 @@ export default function ConnectWithUs() {
                     <FaRegClock className="text-blue-600" />
                     Fast Response
                   </div>
-                  <p className="mt-2 text-sm text-slate-600">
+                  <p className="mt-2 text-sm text-slate-700">
                     Our team usually replies within 30 minutes.
                   </p>
                 </div>
@@ -44,7 +44,7 @@ export default function ConnectWithUs() {
                     <MdOutlineSupportAgent className="text-blue-600" />
                     Expert Support
                   </div>
-                  <p className="mt-2 text-sm text-slate-600">
+                  <p className="mt-2 text-sm text-slate-700">
                     Talk directly with our design consultants.
                   </p>
                 </div>

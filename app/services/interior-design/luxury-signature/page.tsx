@@ -17,7 +17,7 @@ export default function LuxurySignaturePage() {
         </Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-stone-500">The Luxury Signature collection</p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl">A home with your signature in every detail.</h1>
-        <p className="mt-5 max-w-2xl text-lg text-stone-600">Explore Benz Architecture interior inspiration shaped around individual taste, considered materials and refined detailing. Imagine the possibilities for your home, then request a personalised design and quote.</p>
+        <p className="mt-5 max-w-2xl text-lg text-stone-700">Explore Benz Architecture interior inspiration shaped around individual taste, considered materials and refined detailing. Imagine the possibilities for your home, then request a personalised design and quote.</p>
         <OpenQuoteButton label="Get My Personalised Quote" className="mt-5 inline-flex rounded-full bg-fuchsia-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-800" />
       </header>
 

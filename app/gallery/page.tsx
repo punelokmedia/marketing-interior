@@ -161,7 +161,7 @@ export default function GalleryPage() {
               className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm shadow-slate-200/60"
             >
               <p className="text-3xl font-bold text-slate-900">{item.value}</p>
-              <p className="mt-1 text-sm text-slate-600">{item.label}</p>
+              <p className="mt-1 text-sm text-slate-700">{item.label}</p>
             </motion.div>
           ))}
         </div>
@@ -194,7 +194,7 @@ export default function GalleryPage() {
                 <p className="mt-1 text-4xl font-extrabold uppercase leading-none text-black">
                   {item.title.split(" ").slice(1).join(" ")}
                 </p>
-                <p className="mt-4 text-sm text-slate-600">{item.description}</p>
+                <p className="mt-4 text-sm text-slate-700">{item.description}</p>
                 <Link
                   href={`#${item.id}`}
                   className="mt-5 inline-flex rounded-xl bg-fuchsia-700 px-5 py-2 text-sm font-semibold text-white hover:bg-fuchsia-800"
@@ -211,7 +211,7 @@ export default function GalleryPage() {
         <h2 className="text-center text-3xl font-bold text-slate-900">
           Video Walkthrough Highlights
         </h2>
-        <p className="mx-auto mt-2 max-w-2xl text-center text-slate-600">
+        <p className="mx-auto mt-2 max-w-2xl text-center text-slate-700">
           Quick previews from real homes to help you visualize layout, lighting,
           and finish quality.
         </p>

@@ -20,7 +20,7 @@ export default function EssentialHomePage() {
         </Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-stone-500">The Essential Home collection</p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl">Small details. A whole new feeling of home.</h1>
-        <p className="mt-5 max-w-2xl text-lg text-stone-600">Explore a considered approach to 2BHK living, with modular essentials, modern finishes and room for everyday life.</p>
+        <p className="mt-5 max-w-2xl text-lg text-stone-700">Explore a considered approach to 2BHK living, with modular essentials, modern finishes and room for everyday life.</p>
         <OpenQuoteButton label="Get My Personalised Quote" className="mt-5 inline-flex rounded-full bg-fuchsia-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-800" />
       </header>
 

@@ -35,7 +35,7 @@ export default function WhatWeOffer() {
               <h3 className="text-lg font-semibold text-black">Our services</h3>
             </div>
 
-            <ul className="space-y-3 text-gray-600 text-sm">
+            <ul className="space-y-3 text-gray-700 text-sm">
               <li>• Modular kitchens</li>
               <li>• Modular wardrobes</li>
               <li>• Lighting</li>
@@ -59,7 +59,7 @@ export default function WhatWeOffer() {
               </h3>
             </div>
 
-            <ul className="space-y-4 text-gray-600 text-sm">
+            <ul className="space-y-4 text-gray-700 text-sm">
               <li>
                 • Flexible payment options - EMI solutions and payment schemes
                 from leading financial partners.
@@ -81,7 +81,7 @@ export default function WhatWeOffer() {
               <h3 className="text-lg font-semibold text-black">Warranty</h3>
             </div>
 
-            <ul className="space-y-4 text-gray-600 text-sm">
+            <ul className="space-y-4 text-gray-700 text-sm">
               <li>
                 • Flat 10-year warranty - Stay worry-free with our warranty
                 policy on modular products.

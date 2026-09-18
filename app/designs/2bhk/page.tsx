@@ -24,7 +24,7 @@ export default function TwoBhkDesignPage() {
         <header className="max-w-3xl py-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-red-500">2BHK design catalog .</p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Thoughtful spaces. Everyday value.</h1>
-          <p className="mt-5 text-lg leading-relaxed text-gray-600">Explore a warm, contemporary interior with practical storage, soft lighting and a coordinated palette. These five views show how considered details can make a 2BHK home more comfortable and useful.</p>
+          <p className="mt-5 text-lg leading-relaxed text-gray-700">Explore a warm, contemporary interior with practical storage, soft lighting and a coordinated palette. These five views show how considered details can make a 2BHK home more comfortable and useful.</p>
           <p className="mt-6 text-xl font-semibold">Starting at 3.57L*</p>
           <p className="mt-2 text-sm text-gray-500">*Final pricing and inclusions depend on your layout, materials and selected scope.</p>
         </header>
@@ -43,7 +43,7 @@ export default function TwoBhkDesignPage() {
               <figcaption className="flex flex-col justify-center p-7 md:p-12">
                 <span className="text-sm font-semibold tracking-widest text-red-500">0{index + 1} / 05</span>
                 <h2 className="mt-4 text-2xl font-bold md:text-3xl">{photo.title}</h2>
-                <p className="mt-5 leading-relaxed text-gray-600">{photo.description}</p>
+                <p className="mt-5 leading-relaxed text-gray-700">{photo.description}</p>
               </figcaption>
             </figure>
           ))}

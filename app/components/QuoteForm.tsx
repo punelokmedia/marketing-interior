@@ -94,7 +94,7 @@ export default function QuoteModal({ onClose }: QuoteFormProps) {
             <div className="mt-6 space-y-5">
               {/* NAME */}
               <div>
-                <label className="text-sm text-gray-600 mb-1 block">
+                <label className="text-sm text-gray-700 mb-1 block">
                   Name
                 </label>
                 <input
@@ -113,7 +113,7 @@ export default function QuoteModal({ onClose }: QuoteFormProps) {
 
               {/* PHONE */}
               <div>
-                <label className="text-sm text-gray-600 mb-1 block">
+                <label className="text-sm text-gray-700 mb-1 block">
                   Phone Number
                 </label>
 
@@ -144,7 +144,7 @@ export default function QuoteModal({ onClose }: QuoteFormProps) {
               </div>
 
               {/* CHECKBOX */}
-              <label className="flex items-center gap-2 text-sm text-gray-600">
+              <label className="flex items-center gap-2 text-sm text-gray-700">
                 <input
                   type="checkbox"
                   {...register("whatsappUpdates")}
@@ -175,7 +175,7 @@ export default function QuoteModal({ onClose }: QuoteFormProps) {
             <div className="mt-6 space-y-5">
               {/* EMAIL */}
               <div>
-                <label className="text-sm text-gray-600 mb-1 block">Email</label>
+                <label className="text-sm text-gray-700 mb-1 block">Email</label>
                 <input
                   {...register("email", {
                     required: "Email is required",
@@ -197,7 +197,7 @@ export default function QuoteModal({ onClose }: QuoteFormProps) {
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="text-gray-600"
+                  className="text-gray-700"
                 >
                   ← Back
                 </button>

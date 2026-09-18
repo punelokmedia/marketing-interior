@@ -148,7 +148,7 @@ export default function AboutPage() {
                 Delivering with Passion
               </h2>
             </div>
-            <p className="max-w-2xl leading-7 text-slate-500">
+            <p className="max-w-2xl text-base font-medium leading-7 text-slate-700">
               Our process is built around understanding your needs, visualizing your dream space,
               and delivering results that exceed expectations.
             </p>
@@ -162,7 +162,7 @@ export default function AboutPage() {
                 </div>
                 <div className="xl:mt-4">
                   <p className="font-bold text-slate-900">{title}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-500">{description}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">{description}</p>
                 </div>
                 {index < process.length - 1 && (
                   <FiArrowRight

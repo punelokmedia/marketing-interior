@@ -68,7 +68,7 @@ export default function FAQ() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="px-5 pb-4 text-gray-600 text-sm"
+                    className="px-5 pb-4 text-gray-700 text-sm"
                   >
                     {faq.answer}
                   </motion.div>

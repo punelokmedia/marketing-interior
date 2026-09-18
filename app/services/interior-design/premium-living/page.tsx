@@ -18,7 +18,7 @@ export default function PremiumLivingPage() {
         </Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-stone-500">The Premium Living collection</p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-stone-900 sm:text-6xl">More room. More character. More you.</h1>
-        <p className="mt-5 max-w-2xl text-lg text-stone-600">Discover spacious 3BHK interiors with a considered material palette, practical storage and details that make coming home feel special. Share your vision and ask for a quote tailored to your home.</p>
+        <p className="mt-5 max-w-2xl text-lg text-stone-700">Discover spacious 3BHK interiors with a considered material palette, practical storage and details that make coming home feel special. Share your vision and ask for a quote tailored to your home.</p>
         <OpenQuoteButton label="Get My Personalised Quote" className="mt-5 inline-flex rounded-full bg-fuchsia-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-800" />
       </header>
 

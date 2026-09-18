@@ -28,7 +28,7 @@ export default function ThreeBhkDesignPage() {
         <header className="max-w-3xl py-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-red-500">3BHK design catalog</p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Space for family. Details for everyday living.</h1>
-          <p className="mt-5 text-lg leading-relaxed text-gray-600">Explore nine views of a contemporary 3BHK interior concept. Warm wood tones, considered storage and comfortable spaces bring a consistent style to shared rooms and private retreats.</p>
+          <p className="mt-5 text-lg leading-relaxed text-gray-700">Explore nine views of a contemporary 3BHK interior concept. Warm wood tones, considered storage and comfortable spaces bring a consistent style to shared rooms and private retreats.</p>
           <p className="mt-6 text-xl font-semibold">Starting at 4.23L*</p>
           <p className="mt-2 text-sm text-gray-500">*Final pricing and inclusions depend on your layout, materials and selected scope.</p>
         </header>
@@ -47,7 +47,7 @@ export default function ThreeBhkDesignPage() {
               <figcaption className="p-7 md:p-10">
                 <span className="text-sm font-semibold tracking-widest text-red-500">{String(index + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}</span>
                 <h2 className="mt-4 text-2xl font-bold md:text-3xl">{photo.title}</h2>
-                <p className="mt-5 max-w-3xl leading-relaxed text-gray-600">{photo.description}</p>
+                <p className="mt-5 max-w-3xl leading-relaxed text-gray-700">{photo.description}</p>
               </figcaption>
             </figure>
           ))}

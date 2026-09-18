@@ -59,7 +59,7 @@ export default function LocationPage() {
                 <h2 className="text-xl font-semibold text-slate-900">
                   {location.city}
                 </h2>
-                <p className="mt-2 text-sm text-slate-600 line-clamp-2">
+                <p className="mt-2 text-sm text-slate-700 line-clamp-2">
                   {location.heroDescription}
                 </p>
                 <p className="mt-4 text-xs font-semibold tracking-[0.18em] text-fuchsia-700">

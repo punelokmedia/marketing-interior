@@ -107,7 +107,7 @@ export default function CustomInteriorPage() {
               />
               <div className="p-5">
                 <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{item.description}</p>
+                <p className="mt-2 text-sm text-slate-700">{item.description}</p>
               </div>
             </article>
           ))}
@@ -120,7 +120,7 @@ export default function CustomInteriorPage() {
             <h2 className="text-2xl font-bold text-slate-900">
               Material & Finish Choices
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-700">
               Select from premium combinations that fit your budget and usage.
             </p>
             <ul className="mt-5 space-y-2">
@@ -165,7 +165,7 @@ export default function CustomInteriorPage() {
               <h3 className="mt-2 text-xl font-semibold text-slate-900">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm text-slate-600">{step.text}</p>
+              <p className="mt-2 text-sm text-slate-700">{step.text}</p>
             </article>
           ))}
         </div>

@@ -40,7 +40,7 @@ export default function TrustedPartners() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="mx-auto mt-3 max-w-2xl text-base text-gray-600 sm:text-lg"
+          className="mx-auto mt-3 max-w-2xl text-base text-gray-700 sm:text-lg"
         >
           Winning collaborations that produce winning designs.
         </motion.p>

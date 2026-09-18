@@ -59,8 +59,7 @@ export default function Navbar() {
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [showBottomNav, setShowBottomNav] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isHome = pathname === "/";
-  const transparent = isHome && !scrolled && !mobileOpen;
+  const transparent = !scrolled && !mobileOpen;
 
   const openDropdown = (name: string) => {
     if (closeTimerRef.current) {
@@ -84,19 +83,20 @@ export default function Navbar() {
       setShowBottomNav(window.scrollY > 120);
     };
 
-    handleScroll();
+    const frame = window.requestAnimationFrame(handleScroll);
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
+      window.cancelAnimationFrame(frame);
       window.removeEventListener("scroll", handleScroll);
       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>
     <header
-      className={`${isHome ? "fixed" : "sticky"} inset-x-0 top-0 z-50 w-full border-b transition-colors duration-300 ease-out motion-reduce:transition-none ${
+      className={`fixed inset-x-0 top-0 z-50 w-full border-b transition-colors duration-300 ease-out motion-reduce:transition-none ${
         transparent
           ? "border-transparent bg-transparent text-white"
           : "border-slate-200/70 bg-white/95 text-slate-800 shadow-sm backdrop-blur-xl"
@@ -168,7 +168,7 @@ export default function Navbar() {
                         <div className="grid grid-cols-2 gap-x-8 gap-y-5 lg:grid-cols-4">
                           {link.megaDropdown.map((group) => (
                             <div key={group.title}>
-                              <p className="text-sm font-bold uppercase tracking-wide text-slate-600">
+                              <p className="text-sm font-bold uppercase tracking-wide text-slate-700">
                                 {group.title}
                               </p>
                               <div className="mt-2 space-y-1">

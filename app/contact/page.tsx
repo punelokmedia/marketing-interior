@@ -180,7 +180,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold text-slate-900">
               Talk to our experts
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-700">
               Prefer quick help? Reach us instantly using one of these channels.
             </p>
 
@@ -232,7 +232,7 @@ export default function ContactPage() {
                 <FaRegClock className="text-sky-600" />
                 Working Hours
               </div>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-slate-700">
                 Monday to Saturday: 10:00 AM - 8:00 PM
               </p>
             </div>
@@ -249,7 +249,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold text-slate-900">
               Request a free consultation
             </h2>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-700">
               Fill in your details and we will get back to you shortly.
             </p>
 
@@ -332,7 +332,7 @@ export default function ContactPage() {
           transition={{ duration: 0.55 }}
         >
           <h3 className="text-2xl font-bold text-slate-900">What happens next?</h3>
-          <p className="mt-2 text-slate-600">
+          <p className="mt-2 text-slate-700">
             Simple and transparent process to start your interior project.
           </p>
 
@@ -350,7 +350,7 @@ export default function ContactPage() {
                   STEP {index + 1}
                 </p>
                 <h4 className="mt-2 text-lg font-semibold text-slate-900">{step.title}</h4>
-                <p className="mt-1 text-sm text-slate-600">{step.description}</p>
+                <p className="mt-1 text-sm text-slate-700">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -367,7 +367,7 @@ export default function ContactPage() {
             transition={{ duration: 0.55 }}
           >
             <h3 className="text-2xl font-bold text-slate-900">Project types we handle</h3>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-700">
               Share your requirement and we will tailor a package for you.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -397,7 +397,7 @@ export default function ContactPage() {
                     <FaCheckCircle className="mt-0.5 text-emerald-600" />
                     {item.question}
                   </p>
-                  <p className="mt-2 text-sm text-slate-600">{item.answer}</p>
+                  <p className="mt-2 text-sm text-slate-700">{item.answer}</p>
                 </div>
               ))}
             </div>
