@@ -1,6 +1,7 @@
 # Save form submissions in Supabase
 
-The homepage quote form, free quote popup and contact page POST to `/api/leads`.
+The homepage quote form, free quote popup, contact page, and full home, kitchen and wardrobe estimate forms POST to `/api/leads`.
+Estimate requests use the sources `Full Home Estimate`, `Kitchen Estimate` and `Wardrobe Estimate`. Their validated selections, city, expected start date and additional requirements are saved in the existing `message` column; no schema migration is required. These forms request a team-provided estimate and do not calculate prices automatically.
 The server validates the fields and saves them to Supabase before returning success.
 Existing Web3Forms email notifications run after the save and are best effort.
 The blog newsletter is separate and is not connected by this integration.

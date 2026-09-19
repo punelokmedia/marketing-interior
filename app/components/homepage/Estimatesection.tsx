@@ -1,29 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaCouch, FaUtensils, FaDoorOpen } from "react-icons/fa";
 
 const data = [
   {
     title: "Full Home",
+    href: "/estimate/full-home",
     desc: "Get an approximate costing for your full home interiors.",
     icon: <FaCouch />,
   },
   {
     title: "Kitchen",
+    href: "/estimate/kitchen",
     desc: "Get an approximate costing for your kitchen interior.",
     icon: <FaUtensils />,
   },
   {
     title: "Wardrobe",
-    desc: "Get an approximate costing for your wardrobe .",
+    href: "/estimate/wardrobe",
+    desc: "Get an approximate costing for your wardrobe.",
     icon: <FaDoorOpen />,
   },
 ];
 
 export default function EstimateSection() {
   return (
-    <section className="bg-gray-100 py-20 px-8">
+    <section id="home-estimates" className="scroll-mt-28 bg-gray-100 py-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* HEADING */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -54,9 +58,9 @@ export default function EstimateSection() {
               <p className="mt-2 text-gray-500 text-sm">{item.desc}</p>
 
               {/* BUTTON */}
-              <button className="mt-6 w-full bg-red-500 text-white py-3 rounded-full font-semibold hover:bg-red-600 transition">
+              <Link href={item.href} aria-label={`Calculate ${item.title.toLowerCase()} interior cost`} className="mt-6 block w-full bg-red-500 text-center text-white py-3 rounded-full font-semibold hover:bg-red-600 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600">
                 CALCULATE →
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>

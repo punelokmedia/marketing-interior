@@ -1,3 +1,5 @@
+import type { EstimatePayload } from "./estimates";
+
 type LeadPayload = {
   name: string;
   email: string;
@@ -5,6 +7,7 @@ type LeadPayload = {
   message: string;
   source: string;
   whatsappUpdates?: boolean;
+  estimate?: EstimatePayload;
 };
 
 export async function submitLeadToWeb3Forms(payload: LeadPayload) {
@@ -22,6 +25,7 @@ export async function submitLeadToWeb3Forms(payload: LeadPayload) {
       message: payload.message,
       source: payload.source,
       whatsappUpdates: payload.whatsappUpdates,
+      estimate: payload.estimate,
       pageUrl,
     }),
   });

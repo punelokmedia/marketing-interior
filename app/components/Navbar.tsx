@@ -33,7 +33,6 @@ const navLinks: NavLink[] = [
     href: "/services/interior-design",
     dropdown: [
       { name: "Interior Design", href: "/services/interior-design" },
-      { name: "Renovation", href: "/services/renovation" },
       { name: "Custom Interior", href: "/services/Custom-interiorpage" },
     ],
   },

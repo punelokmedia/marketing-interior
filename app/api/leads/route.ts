@@ -1,4 +1,58 @@
 import { after } from "next/server";
+import { estimates, formatEstimateMessage } from "../../lib/estimates";
+
+type SupabaseError = {
+  code?: string;
+  message?: string;
+  details?: string;
+  hint?: string;
+};
+
+function getSupabaseConfig() {
+  const url = process.env.SUPABASE_URL?.replace(/\/$/, "");
+  const key = process.env.SUPABASE_SECRET_KEY;
+
+  if (!url || !key || key.startsWith("sb_publishable_")) return null;
+  return { url, key };
+}
+
+export async function GET() {
+  const config = getSupabaseConfig();
+  if (!config) {
+    return Response.json(
+      { connected: false, message: "Supabase server credentials are missing or use a publishable key." },
+      { status: 503 },
+    );
+  }
+
+  try {
+    const response = await fetch(`${config.url}/rest/v1/leads?select=id&limit=1`, {
+      method: "HEAD",
+      headers: {
+        apikey: config.key,
+        "Accept-Profile": "public",
+      },
+      signal: AbortSignal.timeout(10000),
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      console.error("Supabase connection check failed", { status: response.status });
+      return Response.json(
+        { connected: false, message: "Supabase responded, but the key or leads table permissions are invalid." },
+        { status: 503 },
+      );
+    }
+
+    return Response.json({ connected: true });
+  } catch (error) {
+    console.error("Supabase connection check failed", error instanceof Error ? error.message : error);
+    return Response.json(
+      { connected: false, message: "Supabase could not be reached." },
+      { status: 503 },
+    );
+  }
+}
 
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
@@ -20,31 +74,50 @@ export async function POST(request: Request) {
   const name = field("name");
   const email = field("email");
   const phone = field("phone");
-  const message = field("message");
+  let message = field("message");
   const source = field("source");
   const pageUrl = field("pageUrl");
+  const estimateSources = Object.values(estimates).map((config) => `${config.title} Estimate`);
+  if (estimateSources.includes(source)) {
+    const estimateMessage = formatEstimateMessage(body.estimate, source);
+    if (!estimateMessage) return Response.json({ message: "Please complete all estimate fields with valid selections." }, { status: 400 });
+    message = estimateMessage;
+  }
   if (!name || name.length > 150 || email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
       !/^[+\d\s()-]{10,25}$/.test(phone) || phone.replace(/\D/g, "").length < 10 ||
       message.length > 8000 || pageUrl.length > 2000 ||
-      !["Homepage Quote Form", "Get Free Quote Popup", "Contact Page"].includes(source) ||
+      !["Homepage Quote Form", "Get Free Quote Popup", "Contact Page", ...estimateSources].includes(source) ||
       (body.whatsappUpdates !== undefined && typeof body.whatsappUpdates !== "boolean")) {
     return Response.json({ message: "Please enter a valid name, email and phone number. Keep your message under 8,000 characters." }, { status: 400 });
   }
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SECRET_KEY;
-  if (!url || !key) {
+  const config = getSupabaseConfig();
+  if (!config) {
+    console.error("SUPABASE_SECRET_KEY is missing or contains a publishable key");
     return Response.json({ message: "Form submissions are temporarily unavailable. Please contact us by phone." }, { status: 503 });
   }
   try {
-    const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/leads?select=id`, {
+    const response = await fetch(`${config.url}/rest/v1/leads?select=id`, {
       method: "POST",
-      headers: { apikey: key, "Content-Type": "application/json", Prefer: "return=representation" },
+      headers: {
+        apikey: config.key,
+        "Content-Type": "application/json",
+        "Content-Profile": "public",
+        "Accept-Profile": "public",
+        Prefer: "return=representation",
+      },
       body: JSON.stringify({ name, email, phone, message, source, page_url: pageUrl, whatsapp_updates: body.whatsappUpdates === true }),
       signal: AbortSignal.timeout(10000),
       cache: "no-store",
     });
     if (!response.ok) {
-      console.error("Lead storage failed with status", response.status);
+      const error = await response.json().catch(() => null) as SupabaseError | null;
+      console.error("Supabase lead insert failed", {
+        status: response.status,
+        code: error?.code,
+        message: error?.message,
+        details: error?.details,
+        hint: error?.hint,
+      });
       return Response.json({ message: "Unable to save your details. Please try again." }, { status: 502 });
     }
     const saved = await response.json();
@@ -52,8 +125,9 @@ export async function POST(request: Request) {
       console.error("Supabase did not return a saved lead ID");
       return Response.json({ message: "We could not confirm your submission. Please contact us by phone." }, { status: 502 });
     }
-    console.info("Lead saved to Supabase:", saved[0].id, "project:", new URL(url).hostname);
-  } catch {
+    console.info("Lead saved to Supabase:", saved[0].id, "project:", new URL(config.url).hostname);
+  } catch (error) {
+    console.error("Supabase lead request failed", error instanceof Error ? error.message : error);
     return Response.json({ message: "Unable to save your details. Please try again." }, { status: 502 });
   }
   // Email is best effort after storage; an email failure must not ask the visitor to resubmit a saved lead.
