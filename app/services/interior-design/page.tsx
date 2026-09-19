@@ -66,7 +66,7 @@ export default function InteriorDesignPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <HeroSlideshow images={["/service_page_hero.jpg","/about-hero.jpg","/background.jpg"]} />
+        <HeroSlideshow />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p

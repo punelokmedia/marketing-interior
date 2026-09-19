@@ -115,7 +115,7 @@ export default function GalleryPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <HeroSlideshow images={["/background.jpg","/project-image-one.jpg","/project-image-second.jpg"]} />
+        <HeroSlideshow />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p

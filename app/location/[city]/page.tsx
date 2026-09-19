@@ -47,7 +47,7 @@ export default async function LocationCityPage({ params }: LocationCityPageProps
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20 pt-3">
       <section className="relative overflow-hidden rounded-b-[2rem] py-20 text-white md:py-24">
-        <HeroSlideshow images={["/service_page_hero.jpg","/about-hero.jpg","/background.jpg"]} />
+        <HeroSlideshow />
 
         <div className="relative mx-auto max-w-6xl px-6 text-left">
           <p className="text-xs font-semibold tracking-[0.24em] text-cyan-200/95">

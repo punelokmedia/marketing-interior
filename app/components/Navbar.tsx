@@ -40,9 +40,8 @@ const navLinks: NavLink[] = [
     name: "Commercial",
     href: "/commercial",
     dropdown: [
-      { name: "Office Interior", href: "/services/interior-design" },
-      { name: "Commercial Renovation", href: "/services/renovation" },
-      { name: "Custom Commercial Interior", href: "/services/Custom-interiorpage" },
+      { name: "Office Interior", href: "/commercial/office-interiors" },
+      { name: "Custom Office Interior", href: "/commercial/custom-office-interiors" },
     ],
   },
   { name: "Our Projects", href: "/gallery" },

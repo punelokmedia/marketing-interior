@@ -68,7 +68,7 @@ export default function AboutPage() {
   return (
     <div className="overflow-hidden bg-white">
       <section className="relative isolate min-h-[720px] bg-[#17110e] text-white">
-        <HeroSlideshow images={["/about-hero.jpg","/herosection-image.jpg","/service_page_hero.jpg"]} />
+        <HeroSlideshow />
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-40 pt-16 md:px-8 lg:grid-cols-[0.9fr_1.25fr] lg:items-center lg:gap-16 lg:pb-44 lg:pt-20">
           <div>

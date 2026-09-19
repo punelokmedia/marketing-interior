@@ -1,6 +1,5 @@
 "use client";
 
-import HeroSlideshow from "../components/HeroSlideshow";
 import Image from "next/image";
 import { FormEvent, useMemo, useState } from "react";
 import { FiArrowRight, FiSearch } from "react-icons/fi";
@@ -116,20 +115,19 @@ export default function BlogListing() {
 
   return (
     <div className="min-h-screen bg-white text-slate-950">
-      <section className="relative isolate flex min-h-[260px] items-center justify-center overflow-hidden px-5 py-14 text-center text-white sm:min-h-[300px]">
-        <HeroSlideshow images={["/blog-header.jpg","/blog-image.jpg","/blog-image-third.jpg"]} />
-        <div className="relative">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-red-300">
+      <header className="border-b border-slate-200 bg-white px-5 pb-10 pt-16 text-center sm:pb-12 sm:pt-20">
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-red-600">
             The Benz Architecture Journal
           </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Latest Insights &amp; Inspirations
           </h1>
-          <p className="mt-4 text-base text-white/80 sm:text-xl">
+          <p className="mt-4 text-base text-slate-600 sm:text-xl">
             Explore the world of luxury design, trends, and innovation.
           </p>
         </div>
-      </section>
+      </header>
 
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:px-8">
         <main>

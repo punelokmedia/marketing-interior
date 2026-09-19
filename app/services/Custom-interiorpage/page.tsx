@@ -2,30 +2,11 @@
 
 import HeroSlideshow from "../../components/HeroSlideshow";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 import OpenQuoteButton from "../../components/OpenQuoteButton";
-
-const customCategories = [
-  {
-    title: "Modular Kitchens",
-    image: "https://picsum.photos/seed/custom-kitchens/1200/900",
-    description: "Smart layouts, premium shutters and practical workflow design.",
-  },
-  {
-    title: "Custom Wardrobes",
-    image: "https://picsum.photos/seed/custom-wardrobes/1200/900",
-    description: "Space-optimized wardrobes tailored to your storage needs.",
-  },
-  {
-    title: "TV & Living Units",
-    image: "https://picsum.photos/seed/custom-living/1200/900",
-    description: "Statement walls and media units aligned with your style.",
-  },
-  {
-    title: "Bedroom Solutions",
-    image: "https://picsum.photos/seed/custom-bedroom/1200/900",
-    description: "Balanced comfort and functionality with premium finishes.",
-  },
-];
+import { customInteriorCategories, customInteriorImage } from "../../lib/customInteriors";
 
 const materialOptions = [
   "Marine Ply & HDHMR boards",
@@ -57,7 +38,7 @@ export default function CustomInteriorPage() {
   return (
     <main className="bg-gradient-to-b from-slate-50 to-white pb-20">
       <section className="relative overflow-hidden rounded-b-[2rem] py-24 text-white">
-        <HeroSlideshow images={["/service_page_hero.jpg","/about-hero.jpg","/background.jpg"]} />
+        <HeroSlideshow />
 
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p
@@ -96,20 +77,30 @@ export default function CustomInteriorPage() {
           Custom Interior Categories
         </h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {customCategories.map((item) => (
-            <article
+          {customInteriorCategories.map((item) => (
+            <Link
               key={item.title}
-              className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60"
+              href={`/services/Custom-interiorpage/${item.slug}`}
+              aria-label={`Explore ${item.shortTitle}`}
+              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fuchsia-700"
             >
-              <div
-                className="h-56 bg-cover bg-center"
-                style={{ backgroundImage: `url('${item.image}')` }}
-              />
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-700">{item.description}</p>
+              <div className="relative h-56 overflow-hidden bg-slate-100">
+                <Image
+                  src={customInteriorImage(item, item.images[0])}
+                  alt={`${item.shortTitle} by Benz Architecture`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
               </div>
-            </article>
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-slate-900">{item.shortTitle}</h3>
+                <p className="mt-2 text-sm text-slate-700">{item.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-fuchsia-700 transition group-hover:gap-3">
+                  Explore designs <FaArrowRight aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
