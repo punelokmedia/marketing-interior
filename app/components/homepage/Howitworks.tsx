@@ -8,6 +8,7 @@ import {
   FaTools,
   FaTruck,
 } from "react-icons/fa";
+import OpenQuoteButton from "../OpenQuoteButton";
 
 const steps = [
   {
@@ -71,9 +72,10 @@ export default function HowItWorks() {
         </div>
 
         {/* BUTTON */}
-        <button className="mt-12 bg-red-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-600 transition">
-          BOOK A CONSULTATION
-        </button>
+        <OpenQuoteButton
+          label="BOOK A CONSULTATION"
+          className="mt-12 rounded-full bg-red-500 px-8 py-3 font-semibold text-white transition hover:bg-red-600"
+        />
       </div>
     </section>
   );
