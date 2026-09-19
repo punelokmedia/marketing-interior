@@ -9,11 +9,18 @@ type SupabaseError = {
 };
 
 function getSupabaseConfig() {
-  const url = process.env.SUPABASE_URL?.replace(/\/$/, "");
-  const key = process.env.SUPABASE_SECRET_KEY;
+  const rawUrl = process.env.SUPABASE_URL?.trim();
+  const key = process.env.SUPABASE_SECRET_KEY?.trim();
 
-  if (!url || !key || key.startsWith("sb_publishable_")) return null;
-  return { url, key };
+  if (!rawUrl || !key || key.startsWith("sb_publishable_")) return null;
+
+  try {
+    const url = new URL(rawUrl);
+    if (url.protocol !== "https:" || !url.hostname.endsWith(".supabase.co")) return null;
+    return { url: url.origin, key };
+  } catch {
+    return null;
+  }
 }
 
 export async function GET() {
