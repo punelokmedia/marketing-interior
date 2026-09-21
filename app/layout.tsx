@@ -120,6 +120,57 @@ const structuredData = {
         "Space Planning",
       ],
     },
+    {
+      "@type": "WebSite",
+      "@id": "https://benzarc.com/#website",
+      url: "https://benzarc.com",
+      name: "Benz Architecture",
+      publisher: {
+        "@id": "https://benzarc.com/#organization",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://benzarc.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://benzarc.com/#main-navigation",
+      name: "Benz Architecture Main Pages",
+      itemListElement: [
+        {
+          "@type": "SiteNavigationElement",
+          position: 1,
+          name: "About Us",
+          url: "https://benzarc.com/about",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 2,
+          name: "Services",
+          url: "https://benzarc.com/services",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 3,
+          name: "Our Projects",
+          url: "https://benzarc.com/gallery",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 4,
+          name: "Blog",
+          url: "https://benzarc.com/blog",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 5,
+          name: "Contact Us",
+          url: "https://benzarc.com/contact",
+        },
+      ],
+    },
   ],
 };
 
