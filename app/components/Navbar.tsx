@@ -106,9 +106,9 @@ export default function Navbar() {
           <Image
             src="/benz-logo.png"
             alt="Benz Architecture"
-            width={1254}
-            height={1254}
-            priority
+            width={256}
+            height={256}
+            loading="eager"
             className="h-12 w-auto md:h-16"
           />
         </Link>
@@ -382,8 +382,9 @@ export default function Navbar() {
             <Image
               src="/benz-logo.png"
               alt=""
-              width={1254}
-              height={1254}
+              width={256}
+              height={256}
+              loading="eager"
               className="size-12 rounded-full object-contain"
             />
           </Link>
