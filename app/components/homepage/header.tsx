@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import OpenQuoteButton from "../OpenQuoteButton";
 
 type HeaderProps = {
@@ -16,38 +16,23 @@ export default function Header({
 }: HeaderProps) {
   const heroRef = useRef<HTMLElement>(null);
   const musicRef = useRef<HTMLAudioElement>(null);
-  const musicPausedByUser = useRef(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
-  const [musicError, setMusicError] = useState(false);
-  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
   useEffect(() => {
     const hero = heroRef.current;
     const music = musicRef.current;
     if (!hero || !music) return;
-    music.volume = 0.35;
-    let heroVisible = false;
+    music.volume = 1;
+    const bounds = hero.getBoundingClientRect();
+    let heroVisible = bounds.bottom > 0 && bounds.top < window.innerHeight;
     let disposed = false;
     let starting = false;
 
     const tryAutoplay = () => {
-      if (disposed || starting || !heroVisible || document.hidden ||
-          musicPausedByUser.current || !music.paused) return;
+      if (disposed || starting || !heroVisible || document.hidden || !music.paused) return;
       starting = true;
-      void music.play().catch((error: unknown) => {
-        if (disposed) return;
-        if (error instanceof DOMException && error.name === "NotAllowedError") {
-          setAutoplayBlocked(true);
-        } else if (!(error instanceof DOMException && error.name === "AbortError")) {
-          setMusicError(true);
-        }
+      void music.play().catch(() => {
+        // Browsers may require a visitor interaction before playing sound.
       }).finally(() => { starting = false; });
-    };
-
-    const retryOnInteraction = (event: Event) => {
-      // Let the music button handle its own click without toggling twice.
-      if (event.target instanceof Element && event.target.closest("[data-hero-music-control]")) return;
-      tryAutoplay();
     };
 
     const observer = new IntersectionObserver(([entry]) => {
@@ -62,68 +47,27 @@ export default function Header({
     };
     observer.observe(hero);
     music.addEventListener("canplay", tryAutoplay);
-    document.addEventListener("pointerup", retryOnInteraction);
-    document.addEventListener("keydown", retryOnInteraction);
     document.addEventListener("visibilitychange", pauseWhenHidden);
+    tryAutoplay();
     return () => {
       disposed = true;
       observer.disconnect();
       music.removeEventListener("canplay", tryAutoplay);
-      document.removeEventListener("pointerup", retryOnInteraction);
-      document.removeEventListener("keydown", retryOnInteraction);
       document.removeEventListener("visibilitychange", pauseWhenHidden);
       music.pause();
     };
   }, []);
-
-  const toggleMusic = async () => {
-    const music = musicRef.current;
-    if (!music) return;
-    setMusicError(false);
-    if (!music.paused) {
-      musicPausedByUser.current = true;
-      music.pause();
-      return;
-    }
-    try {
-      musicPausedByUser.current = false;
-      await music.play();
-    } catch {
-      setMusicError(true);
-    }
-  };
 
   return (
     <>
       <section ref={heroRef} className="relative overflow-hidden bg-slate-950 text-white">
       <audio
         ref={musicRef}
-        src="/hero_section_background_music.mp3"
+        src="/hero_section_background_music.m4a"
         autoPlay
         loop
         preload="auto"
-        onPlay={() => {
-          setMusicPlaying(true);
-          setAutoplayBlocked(false);
-          setMusicError(false);
-        }}
-        onPause={() => setMusicPlaying(false)}
-        onError={() => setMusicError(true)}
       />
-      <div className="absolute bottom-3 right-3 z-20 flex flex-col items-end gap-2">
-        {autoplayBlocked && !musicError && <p role="status" className="max-w-64 rounded bg-black/75 px-3 py-2 text-xs">Tap anywhere to enable background music.</p>}
-        {musicError && <p role="status" className="rounded bg-black/75 px-3 py-2 text-xs">Music could not play. Please try again.</p>}
-        <button
-          data-hero-music-control
-          type="button"
-          onClick={toggleMusic}
-          aria-pressed={musicPlaying}
-          aria-label="Hero background music"
-          className="min-h-11 rounded-full border border-white/50 bg-black/65 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          {musicPlaying ? "Pause music" : "Play music"}
-        </button>
-      </div>
       <div className="pointer-events-none relative aspect-video w-full overflow-hidden bg-black" aria-hidden="true">
         <video
           // Video extensions can add classes before React hydrates this element.
