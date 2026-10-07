@@ -16,6 +16,8 @@ import {
 } from "react-icons/hi2";
 import { PiForkKnife, PiHardHat } from "react-icons/pi";
 import OpenQuoteButton from "../components/OpenQuoteButton";
+import ClientLogos from "../components/ClientLogos";
+import WorldDevelopmentProject from "../components/WorldDevelopmentProject";
 
 export const metadata: Metadata = {
   title: "Commercial Interiors | Benz Architecture",
@@ -185,7 +187,9 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-16 md:px-8 md:pb-20">
+      <WorldDevelopmentProject />
+
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
         <div className="rounded-xl bg-[#faf8f6] px-6 py-12 md:px-10">
           <SectionTitle>Designed around your business</SectionTitle>
           <div className="mt-9 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
@@ -245,6 +249,7 @@ export default function CommercialPage() {
           </div>
         </div>
       </section>
+      <ClientLogos />
     </div>
   );
 }

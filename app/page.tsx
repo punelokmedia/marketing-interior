@@ -8,6 +8,7 @@ import HowItWorks from "./components/homepage/Howitworks";
 import ConnectWithUs from "./components/homepage/ConnectWithUs";
 import FAQ from "./components/homepage/faq";
 import FloatingContactBar from "./components/homepage/FloatingContactBar";
+import ClientLogos from "./components/ClientLogos";
 export const metadata = { alternates: { canonical: "https://benzarc.com" } };
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       <HowItWorks />
       <ConnectWithUs />
       <FAQ />
+      <ClientLogos />
     </main>
   );
 }

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaCheck, FaPhoneAlt } from "react-icons/fa";
 import OpenQuoteButton from "../../components/OpenQuoteButton";
+import WorldDevelopmentProject from "../../components/WorldDevelopmentProject";
+import { worldDevelopmentPhotos } from "../../lib/worldDevelopmentProject";
 import { commercialInteriorImage, commercialInteriorServices, getCommercialInteriorService } from "../../lib/commercialInteriors";
 
 type Props = { params: Promise<{ service: string }> };
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CommercialServicePage({ params }: Props) {
   const service = getCommercialInteriorService((await params).service);
   if (!service) notFound();
-  const hero = commercialInteriorImage(service, service.images[0]);
+  const hero = worldDevelopmentPhotos[0].src;
 
   return (
     <main className="min-h-screen bg-white pb-20 text-slate-950">
@@ -42,8 +44,8 @@ export default async function CommercialServicePage({ params }: Props) {
               <div><strong className="block text-lg">Quality</strong><span className="text-xs text-slate-600">Checked</span></div>
             </div>
           </div>
-          <a href={hero} target="_blank" rel="noopener noreferrer" className="group relative mx-auto aspect-[3/4] w-full max-w-xl overflow-hidden rounded-[2rem] bg-white shadow-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
-            <Image src={hero} alt={`${service.title} by Benz Architecture`} fill preload sizes="(max-width: 1024px) 100vw, 55vw" className="object-contain transition duration-700 group-hover:scale-[1.02]" />
+          <a href={hero} target="_blank" rel="noopener noreferrer" className="group relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-[2rem] bg-white shadow-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+            <Image src={hero} alt="World Development Corporation open-plan office with geometric lighting" fill preload sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover transition duration-700 group-hover:scale-[1.02]" />
             <span className="absolute bottom-5 right-5 rounded-full bg-slate-950/80 px-4 py-2 text-xs font-bold text-white backdrop-blur">View full image ↗</span>
           </a>
         </div>
@@ -68,7 +70,9 @@ export default async function CommercialServicePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 md:px-8">
+      <WorldDevelopmentProject />
+
+      <section className="mx-auto max-w-7xl px-5 pt-16 md:px-8 md:pt-20">
         <div className="mb-9 text-center">
           <p className="text-xs font-bold tracking-[0.22em] text-amber-700">CURATED OFFICE IDEAS</p>
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Find the right direction for your workplace</h2>
